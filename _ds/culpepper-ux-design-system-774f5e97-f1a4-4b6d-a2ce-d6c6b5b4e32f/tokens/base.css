@@ -1,0 +1,50 @@
+/* Culpepper UX — base element styles */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, var(--font-sans));
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { margin: 0; max-width: var(--measure); text-wrap: pretty; }
+
+a {
+  color: var(--text-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--accent-hover); }
+
+::selection { background: var(--navy-100); color: var(--navy-900); }
+
+hr {
+  border: none;
+  border-top: var(--hairline);
+  margin: var(--space-8) 0;
+}
+
+/* "System voice" utility — the only sanctioned Courier Prime use */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-label);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}

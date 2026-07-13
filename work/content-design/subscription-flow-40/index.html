@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="cs-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work/content-design/" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← CONTENT DESIGN</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="220px,20px">CASE STUDY — 03</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Subscription Flow Optimization</h1>
+    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">How strategic content design and rapid iteration drove a <strong style="color: var(--text-primary);">40% conversion lift</strong> through data-informed messaging improvements</p>
+  </div>
+</section>
+
+<section data-screen-label="s1-problem">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="120px,20px">PROBLEM</x-import>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">The subscription plan selection flow needed optimization to improve conversion rates. Users were dropping off during the decision-making process, indicating unclear value propositions and pricing presentation.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s2-approach">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 64px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="130px,20px">APPROACH</x-import>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Implemented a rapid iteration strategy with 1-2 content design cycles per week, remaining highly responsive to conversion data and user feedback. Each iteration focused on refining messaging hierarchy, value propositions, and pricing clarity.</p>
+    </div>
+    <div style="margin-top: 48px; display: flex; flex-direction: column; gap: 40px;">
+      <figure style="margin: 0;">
+        <img src="/assets/sub40-flow-1.webp" alt="Plan selection flow — four screens showing CVR improving from 9% to 12.4%" style="display: block; width: 100%; height: auto;">
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">PLAN SELECTION FLOW</figcaption>
+      </figure>
+      <figure style="margin: 0;">
+        <img src="/assets/sub40-flow-2.webp" alt="Key content changes across Versions 1–4" style="display: block; width: 100%; height: auto;">
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">ITERATION</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s3-result" style="margin-top: 72px; background: var(--surface-inset); border-top: var(--hairline); border-bottom: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 56px 32px; display: grid; grid-template-columns: minmax(160px, 260px) 1fr; gap: 40px; align-items: start;">
+    <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Stat" value="40%" label="lift in conversion rates" size="lg" hint-size="220px,88px"></x-import>
+    <div style="max-width: var(--measure); align-self: center;">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="100px,20px">RESULT</x-import>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 14px 0 0; text-wrap: pretty;">Achieved a 40% lift in conversion rates, growing from 9.18% baseline through December. Production testing validated all findings, with conversion rates reaching 13.0% by year-end.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s4-strategy">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 88px;">
+    <div style="max-width: var(--measure);">
+      <h2 style="margin: 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">The Content Strategy That Worked</h2>
+    </div>
+    <div style="margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px;">
+      <div style="border: var(--hairline); border-radius: var(--radius-md); padding: 28px 32px; background: var(--surface-card);">
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">01</span>
+        <h3 style="margin: 0; font-size: var(--text-h3); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading); color: var(--text-primary);">Transparency Over Persuasion</h3>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;">Each iteration added more clarity about pricing, features, and commitments rather than using clever copy tricks.</p>
+      </div>
+      <div style="border: var(--hairline); border-radius: var(--radius-md); padding: 28px 32px; background: var(--surface-card);">
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">02</span>
+        <h3 style="margin: 0; font-size: var(--text-h3); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading); color: var(--text-primary);">Cognitive Ease</h3>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;">Breaking complex pricing into digestible chunks and using familiar anchors like "$1/day" made decisions easier.</p>
+      </div>
+      <div style="border: var(--hairline); border-radius: var(--radius-md); padding: 28px 32px; background: var(--surface-card);">
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">03</span>
+        <h3 style="margin: 0; font-size: var(--text-h3); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading); color: var(--text-primary);">Objection Handling</h3>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;">Proactively addressing concerns about cancellation and commitments upfront instead of hiding them.</p>
+      </div>
+      <div style="border: var(--hairline); border-radius: var(--radius-md); padding: 28px 32px; background: var(--surface-card);">
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">04</span>
+        <h3 style="margin: 0; font-size: var(--text-h3); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading); color: var(--text-primary);">Hierarchy Refinement</h3>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;">Progressive emphasis on the most important decision-making information through each iteration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/content-design/premium-upgrades-198" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← Premium upgrades — 198%</a>
+    <a href="/work/content-design/care-homepage-redesign" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">Next: Homepage redesign →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    try {
+      const key = 'culpepperux:visited';
+      const cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
+      const slug = '/work/content-design/subscription-flow-40';
+      if (cur.indexOf(slug) === -1) {
+        cur.push(slug);
+        localStorage.setItem(key, JSON.stringify(cur));
+      }
+    } catch (e) {}
+  }
+
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

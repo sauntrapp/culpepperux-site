@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="hub-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 64px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← ALL WORK</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="260px,20px">ZONE 01 — CONTENT DESIGN</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Words that moved numbers.</h1>
+    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Content design at Care.com, KAYAK, and eBay — copy with test results behind it.</p>
+    <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 36px; flex-wrap: wrap;">
+      <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">JUMP TO</span>
+      <a href="#care-com" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-accent); border-bottom: 1px solid var(--border-strong); padding-bottom: 2px; transition: border-color 150ms ease-out;" style-hover="border-color: var(--accent)">CARE.COM</a>
+      <span style="color: var(--text-muted);">·</span>
+      <a href="#kayak" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-accent); border-bottom: 1px solid var(--border-strong); padding-bottom: 2px; transition: border-color 150ms ease-out;" style-hover="border-color: var(--accent)">KAYAK</a>
+      <span style="color: var(--text-muted);">·</span>
+      <a href="#ebay" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-accent); border-bottom: 1px solid var(--border-strong); padding-bottom: 2px; transition: border-color 150ms ease-out;" style-hover="border-color: var(--accent)">EBAY</a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="hub-care" id="care-com" style="scroll-margin-top: 24px;">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 0;">
+    <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 16px; border-bottom: var(--hairline);">
+      <img src="/assets/logo-care.png" alt="Care.com" style="display: block; height: 33px; width: auto;">
+      <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">4 STUDIES</span>
+    </div>
+
+    <a href="/work/content-design/senior-care-advisor" style="display: grid; grid-template-columns: 56px 1fr auto auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">01</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c1 }}</span>Senior Care Advisor</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">28% conversion lift · $48K in revenue · 137 purchases</span>
+      </span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-accent);">FEATURED</span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/premium-upgrades-198" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">02</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c2 }}</span>How we increased basic to premium membership 198%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">A 198% increase from basic to premium</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/subscription-flow-40" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">03</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c3 }}</span>Subscription Flow Optimization</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">A 40% lift in conversion rates — 9.18% baseline to 13.0% by year-end</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/care-homepage-redesign" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">04</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c4 }}</span>Redesigning Care.com's homepage</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">+9.6% lift in visitor to basic provider</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+  </div>
+</section>
+
+<section data-screen-label="hub-kayak" id="kayak" style="scroll-margin-top: 24px;">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 0;">
+    <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 16px; border-bottom: var(--hairline);">
+      <img src="/assets/logo-kayak.png" alt="KAYAK" style="display: block; height: 24px; width: auto;">
+      <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">4 STUDIES</span>
+    </div>
+
+    <a href="/work/content-design/kayak-explorer" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">01</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c5 }}</span>KAYAK's First Loyalty Program: Explorer</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">377,000 users signed up — 3% of ALL Android and iOS users</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/kayak-trips-onboarding" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">02</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c6 }}</span>Onboarding for KAYAK's "Trips" feature.</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">An easy to follow desktop sequence for syncing emails to Trips</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/kayak-hotel-app" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">03</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c7 }}</span>The KAYAK Hotel App</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">Onboarding copy for guests' stays — reservations, requests, and a 2021 Chat Bot</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/kayak-sol-luna" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">04</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c8 }}</span>KAYAK Hotels: Sol &amp; Luna</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">Two unique but complementary brand identities for two sister hotels</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+  </div>
+</section>
+
+<section data-screen-label="hub-ebay" id="ebay" style="scroll-margin-top: 24px;">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 96px;">
+    <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 16px; border-bottom: var(--hairline);">
+      <img src="/assets/logo-ebay.png" alt="eBay" style="display: block; height: 36px; width: auto;">
+      <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">2 STUDIES</span>
+    </div>
+
+    <a href="/work/content-design/ebay-high-asp" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">01</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c9 }}</span>eBay: High Average Selling Price Items</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">A down payment on items over a specific price threshold</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+
+    <a href="/work/content-design/ebay-auctions" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 24px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+      <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">02</span>
+      <span style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ c10 }}</span>eBay: Auction Transactions</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">An 18% reduction in overall UPI for Auctions</span>
+      </span>
+      <span style="font-size: 20px; color: var(--text-muted);">→</span>
+    </a>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← All work</a>
+    <a href="/work/ai-product-design/" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">Next zone: AI Product Design →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { visited: [] };
+
+  componentDidMount() {
+    try {
+      const visited = JSON.parse(localStorage.getItem('culpepperux:visited') || '[]') || [];
+      if (visited.length) this.setState({ visited });
+    } catch (e) {}
+  }
+
+  renderVals() {
+    const v = this.state.visited;
+    const check = (slug) => (v.indexOf(slug) !== -1 ? '✓ ' : '');
+    return {
+      c1: check('/work/content-design/senior-care-advisor'),
+      c2: check('/work/content-design/premium-upgrades-198'),
+      c3: check('/work/content-design/subscription-flow-40'),
+      c4: check('/work/content-design/care-homepage-redesign'),
+      c5: check('/work/content-design/kayak-explorer'),
+      c6: check('/work/content-design/kayak-trips-onboarding'),
+      c7: check('/work/content-design/kayak-hotel-app'),
+      c8: check('/work/content-design/kayak-sol-luna'),
+      c9: check('/work/content-design/ebay-high-asp'),
+      c10: check('/work/content-design/ebay-auctions')
+    };
+  }
+}
+</script>
+</body>
+</html>

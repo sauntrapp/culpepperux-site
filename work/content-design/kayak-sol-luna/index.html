@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="cs-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work/content-design/" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← CONTENT DESIGN</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="220px,20px">CASE STUDY — 08</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">KAYAK Hotels: Sol &amp; Luna</h1>
+  </div>
+</section>
+
+<section data-screen-label="hero-video">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 48px 32px 0;">
+    <video src="/uploads/solluna-branding.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" aria-label="Sol &amp; Luna location footage" style="display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: transparent; border-radius: var(--radius-md);"></video>
+  </div>
+</section>
+
+<section data-screen-label="s1-what">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="90px,20px">WHAT</x-import>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Leveraging our expertise and insight on travel tech, KAYAK expanded into the hotel space with our own line of properties owned and managed by the brand. As a part of this new internal team, I was tasked with leading the copy direction, brand conceptualization and maintained all digital and print copy assets for the properties.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s2-challenge">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 64px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="150px,20px">CHALLENGE</x-import>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Develop two unique but complementary brand identities and narratives for the two sister hotels we were opening within the same neighborhood.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s3-story">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 88px;">
+    <div style="max-width: var(--measure);">
+      <h2 style="margin: 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">The Story</h2>
+    </div>
+    <div style="margin-top: 36px; display: flex; flex-direction: column; gap: 32px;">
+      <figure style="margin: 0;">
+        <img src="/assets/cs-ksl-brand-1.webp" alt="Sol brand identity" style="display: block; width: 100%; height: auto;">
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">SOL</figcaption>
+      </figure>
+      <figure style="margin: 0;">
+        <img src="/assets/cs-ksl-brand-2.webp" alt="Luna brand identity" style="display: block; width: 100%; height: auto;">
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">LUNA</figcaption>
+      </figure>
+    </div>
+    <figure style="margin: 24px 0 0;">
+      <div style="border: var(--hairline); border-radius: var(--radius-md); overflow: hidden; height: 480px; background: var(--surface-inset); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; box-sizing: border-box; text-align: center;">
+        <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">VIDEO — EMBEDS HERE</span>
+        <span style="font-size: var(--text-small); line-height: 1.5; color: var(--text-muted); max-width: 320px;">solluna-branding.mp4 · 1920×1080 · 12s · audio</span>
+      </div>
+      <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">SOL &amp; LUNA — BRAND FILM</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/content-design/kayak-hotel-app" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← The KAYAK Hotel App</a>
+    <a href="/work/content-design/ebay-high-asp" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">Next: eBay — High ASP →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    try {
+      const key = 'culpepperux:visited';
+      const cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
+      const slug = '/work/content-design/kayak-sol-luna';
+      if (cur.indexOf(slug) === -1) {
+        cur.push(slug);
+        localStorage.setItem(key, JSON.stringify(cur));
+      }
+    } catch (e) {}
+  }
+
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

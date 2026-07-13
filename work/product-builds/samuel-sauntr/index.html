@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="cs-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work/product-builds/" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← PRODUCT BUILDS</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="220px,20px">CASE STUDY — 02</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Samuel Sauntr: the agent I wrote the rules for.</h1>
+    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Sauntr is my swipe-based travel discovery app. Samuel is its recommendation agent — and the first working proof of the Agent Master method. My own product, built on my own stack, disclosed as exactly that.</p>
+  </div>
+</section>
+
+<section data-screen-label="s1-what-samuel-does">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">01</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Recommendations with receipts</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">Sauntr users swipe through venues — restaurants, bars, places worth a detour. Samuel watches the pattern and the moment: your swipe history plus what you're doing in this session, fed through the Claude API, turned into recommendations that come with a reason.</p>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">Not "you might like this." More like: here's why this fits what you've been choosing. The difference between those two sentences is the whole product.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s2-content-design-underneath">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 80px;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">02</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Specific observations require specific data</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">Early lesson, and the most portable one: an agent can only be as specific as the data traveling with each event. If a swipe record only says "user liked venue #4821," Samuel can only say "you like venues." Category tags had to travel with every swipe — the venue's type, its traits — before Samuel's observations could get sharp.</p>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">That's a content decision disguised as a data decision. What the agent is able to <em>say</em> was determined by what we recorded, fields and tags designed backward from the sentences we wanted Samuel to be capable of. Writing for machines starts in the schema, not the chat window.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s3-contract-in-practice" style="background: var(--surface-card); border-top: var(--hairline); border-bottom: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 88px;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">03</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">What the brief settled before the build</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">Samuel's agent brief — the Agent Master output — settled the behavioral questions before development:</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; margin-top: 36px; align-items: start;">
+      <div>
+        <div style="border: var(--hairline); border-radius: var(--radius-md); background: var(--surface-page); padding: 8px 32px;">
+          <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 20px 0 4px;">SAMUEL'S BRIEF — THE CONTRACT</span>
+          <div style="display: grid; grid-template-columns: 110px 1fr; gap: 0 20px; align-items: baseline; padding: 18px 0; border-bottom: var(--hairline);">
+            <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">DOES</span>
+            <span style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary);">Makes contextual venue recommendations with a stated reason — built from your swipe history plus the current session, weather included. Every observation has to pass one hard filter: it must tell you something you couldn't already see for yourself.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 110px 1fr; gap: 0 20px; align-items: baseline; padding: 18px 0; border-bottom: var(--hairline);">
+            <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">NEVER</span>
+            <span style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary);">Recommends a venue you've already dismissed. And never speaks in system language — no "based on your preferences, we recommend." Samuel talks like a well-informed friend, or he doesn't talk.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 110px 1fr; gap: 0 20px; align-items: baseline; padding: 18px 0; border-bottom: var(--hairline);">
+            <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">ACTS WHEN</span>
+            <span style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary);">He has something specific enough to earn the interruption — at most once per session.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 110px 1fr; gap: 0 20px; align-items: baseline; padding: 18px 0 26px;">
+            <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">WAITS WHEN</span>
+            <span style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary);">He's already had his one moment. More only if you ask: "Would you like more recommendations like this from Samuel?" is the user's door to open, not his.</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <div style="width: 100%; max-width: 380px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border: var(--hairline); border-radius: var(--radius-md); background: var(--surface-page); padding: 12px 18px;">
+          <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-primary);">SAMUEL FIRES</span>
+          <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Switch" checked="{{ samuelFires }}" on-change="{{ toggleSamuel }}" aria-label="Samuel fires" hint-size="44px,24px"></x-import>
+        </div>
+        <div style="width: 100%; max-width: 380px; background: #0F1626; border-radius: 26px; padding: 14px;">
+          <div style="background: #F7F5F0; border-radius: 16px; min-height: 480px; padding: 16px; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #8A8F98; margin-bottom: 14px;"><span>9:41</span><span>▲ ● ▮</span></div>
+            <div style="font-family: var(--font-mono); font-weight: 700; letter-spacing: 0.08em; font-size: 13px; color: #1A2233;">SAUNTR</div>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; color: #C4C0B6; font-size: 12px;">— swipe deck —</div>
+            <div style="background: #FFFFFF; border: 1px solid #E6E3DC; border-radius: 14px; padding: 16px;">
+              <span style="display: block; font-size: 16px; font-weight: 700; color: #1A2233;">Shadows on the Hudson</span>
+              <span style="display: block; font-size: 12.5px; color: #6B7280; margin-top: 3px;">Riverfront restaurant · Poughkeepsie</span>
+              <span style="display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B7280; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEEBE4;">1.2 MI AWAY</span>
+            </div>
+            <sc-if value="{{ samuelFires }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top: 10px; background: #F4F6FF; border: 1px solid #C9D0F2; border-radius: 14px; padding: 14px;" aria-live="polite">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <span style="width: 26px; height: 26px; border-radius: 50%; background: #1B2FBF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">S</span>
+                  <span style="font-weight: 600; font-size: 13px; color: #1A2233;">Samuel</span>
+                  <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B7280;">AGENT</span>
+                </div>
+                <p style="font-size: 14px; line-height: 1.5; color: #1A2233; margin: 0; text-wrap: pretty;">Feels like you're after some fresh air today. Shadows on the Hudson has a riverfront patio that earns it on a day like this.</p>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;">
+          <span style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">THE SAMUEL WIDGET — SAMPLE IMPLEMENTATION FROM SAUNTR, MY OWN PRODUCT</span>
+          <span style="font-size: var(--text-small); line-height: 1.5; color: var(--text-muted);">One scripted venue. No live data.</span>
+        </div>
+      </div>
+    </div>
+    <div style="max-width: var(--measure); margin-top: 40px;">
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 0; text-wrap: pretty;">What that sounds like in the product:</p>
+      <blockquote style="margin: 20px 0 0; padding: 24px 32px; border-left: 2px solid var(--border-accent); background: var(--surface-page); border-radius: var(--radius-sm);">
+        <p style="font-size: var(--text-body-lg); line-height: 1.55; font-style: italic; color: var(--text-primary); margin: 0; text-wrap: pretty;">"Feels like you're after some fresh air today. Shadows on the Hudson has a riverfront patio that earns it on a day like this."</p>
+      </blockquote>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Suggestion, reason, no pressure. He states the fit; he doesn't argue for it.</p>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">The point of showing the contract: every behavior above existed on paper before it existed in code. That's the method.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s4-closing">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 88px;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">04</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Founder, writer, and the person accountable for both</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">Sauntr is mine — the product, the data decisions, and the agent's rules all trace back to the same desk. That's disclosed everywhere this work appears, because a case study on your own product is only worth something if it's labeled honestly. What it proves is simple: I don't just write behavioral contracts for agents. I'm building against one — in public, on my own product.</p>
+      <div style="display: flex; gap: 28px; margin-top: 32px; flex-wrap: wrap; align-items: baseline;">
+        <a href="/work/product-builds/agent-master" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--border-strong); padding-bottom: 2px; transition: border-color 150ms ease-out, color 150ms ease-out;" style-hover="border-color: var(--accent-hover); color: var(--accent-hover)">How the brief got written →</a>
+        <a href="https://sauntr.co" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none; border-bottom: 1px solid var(--border-hairline); padding-bottom: 2px; transition: border-color 150ms ease-out, color 150ms ease-out;" style-hover="border-color: var(--border-strong); color: var(--text-primary)">Sauntr ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/product-builds/agent-master" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← Agent Master</a>
+    <a href="/work/product-builds/content-playbook" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">Next: Content Playbook →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { samuelFires: false };
+
+  componentDidMount() {
+    try {
+      const key = 'culpepperux:visited';
+      const cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
+      const slug = '/work/product-builds/samuel-sauntr';
+      if (cur.indexOf(slug) === -1) {
+        cur.push(slug);
+        localStorage.setItem(key, JSON.stringify(cur));
+      }
+    } catch (e) {}
+  }
+
+  renderVals() {
+    return {
+      samuelFires: this.state.samuelFires,
+      toggleSamuel: (e) => this.setState({ samuelFires: !!e.target.checked })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* Culpepper UX — webfonts
+   Schibsted Grotesk: editorial grotesque for headlines + body.
+   Courier Prime: "system voice" mono for eyebrows, tags, stat numerals.
+   Served from Fontsource CDN (jsDelivr). Replace with self-hosted binaries when available. */
+
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/schibsted-grotesk@latest/latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/schibsted-grotesk@latest/latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/schibsted-grotesk@latest/latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/schibsted-grotesk@latest/latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/schibsted-grotesk@latest/latin-800-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/schibsted-grotesk@latest/latin-400-italic.woff2') format('woff2');
+}
+
+/* Inter — display/heading fallback for Neue Haas Grotesk / Helvetica Now */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-800-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@latest/latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@latest/latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Courier Prime';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/courier-prime@latest/latin-400-italic.woff2') format('woff2');
+}

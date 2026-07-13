@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="cs-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work/content-design/" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← CONTENT DESIGN</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="220px,20px">CASE STUDY — 07</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">The KAYAK Hotel App</h1>
+  </div>
+</section>
+
+<section data-screen-label="s1-what-challenge">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0; display: grid; grid-template-columns: minmax(280px, 380px) minmax(360px, 1fr); gap: 48px; align-items: start;">
+    <img src="/uploads/screen-shot-2022-06-22-at-1.02.50-pm.png" alt="Manage your stay app — 'Nice! You're all set up.' onboarding screen" style="display: block; width: 100%; max-width: 380px; height: auto;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="90px,20px">WHAT</x-import>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Key to KAYAK's entry into the hotelier space was making staying easier for guests. Our app for managing and enhancing guests' stays was our opportunity to show the industry how tech can disrupt hospitality for the better.</p>
+      <div style="margin-top: 48px;">
+        <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="150px,20px">CHALLENGE</x-import>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Develop the copy for an onboarding flow that clearly explained how to set up their account as well as communicating how to utilize the app's features.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s3-add-reservation">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 0;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: start; padding-top: 40px; border-top: var(--hairline);">
+      <div>
+        <h2 style="margin: 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Add a Reservation</h2>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">In order for guests to make the most of their stay with a KAYAK hotel, they need to connect their reservation. I was tasked with creating the copy to help explain how to do it—and why it was a benefit to them.</p>
+      </div>
+      <figure style="margin: 0;">
+        <video src="/uploads/add%20a%20reservation.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" aria-label="Add a reservation flow demo" style="display: block; width: 100%; max-width: 400px; height: auto;"></video>
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">ADD A RESERVATION</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s4-guest-requests">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 48px 32px 0;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: start; padding-top: 40px; border-top: var(--hairline);">
+      <div>
+        <h2 style="margin: 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Guest Requests</h2>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Modernizing the stay experience, the Manage Your Stay app allowed guests to request amenities via the app. Working with a designer, I was responsible for communicating what these amenities were and managing the expectations of when guests would receive them.</p>
+      </div>
+      <figure style="margin: 0;">
+        <video src="/uploads/guest%20requests.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" aria-label="Guest requests flow demo" style="display: block; width: 100%; max-width: 400px; height: auto;"></video>
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">GUEST REQUESTS</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s5-chat-bot" style="margin-top: 72px; background: var(--surface-card); border-top: var(--hairline); border-bottom: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 80px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px; align-items: start;">
+      <div>
+        <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="320px,20px">CONVERSATIONAL DESIGN — 2021</x-import>
+        <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Chat Bot</h2>
+        <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 20px 0 0; text-wrap: pretty;">Once guests had made their room service selections in-app, they'd be directed to a Chat Bot whose tone and content I was responsible for developing.</p>
+      </div>
+      <figure style="margin: 0;">
+        <img src="/assets/cs-kha-chatbot.webp" alt="Chat Bot conversation in the Manage Your Stay app" style="display: block; width: 100%; max-width: 400px; height: auto;">
+        <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">CHAT BOT</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/content-design/kayak-trips-onboarding" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← Trips onboarding</a>
+    <a href="/work/content-design/kayak-sol-luna" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">Next: Sol &amp; Luna →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    try {
+      const key = 'culpepperux:visited';
+      const cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
+      const slug = '/work/content-design/kayak-hotel-app';
+      if (cur.indexOf(slug) === -1) {
+        cur.push(slug);
+        localStorage.setItem(key, JSON.stringify(cur));
+      }
+    } catch (e) {}
+  }
+
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

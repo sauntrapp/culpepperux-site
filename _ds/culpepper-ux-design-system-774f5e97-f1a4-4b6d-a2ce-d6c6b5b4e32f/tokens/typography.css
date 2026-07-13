@@ -1,0 +1,43 @@
+/* Culpepper UX — typography tokens
+   Two families only:
+   - Schibsted Grotesk: everything (display, headings, body, UI)
+   - Courier Prime: "system voice" only — eyebrows, tags, stat numerals, mono callouts.
+     Never body copy. Never headlines. */
+
+:root {
+  --font-sans: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  /* Display/headings: clean editorial grotesque. Neue Haas / Helvetica Now if
+     installed locally; Inter (display weight, tight tracking) as webfont fallback. */
+  --font-display: 'Neue Haas Grotesk Display Pro', 'Neue Haas Grotesk Display', 'Helvetica Now Display', 'Helvetica Now Text', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Courier Prime', 'Courier New', monospace;
+
+  /* ---- Scale (rem) ---- */
+  --text-display-xl: 4.5rem;    /* 72px — hero statements */
+  --text-display:    3.5rem;    /* 56px — page titles */
+  --text-h1:         2.75rem;   /* 44px */
+  --text-h2:         2rem;      /* 32px */
+  --text-h3:         1.5rem;    /* 24px */
+  --text-body-lg:    1.25rem;   /* 20px — intros, standfirsts */
+  --text-body:       1.0625rem; /* 17px — default body */
+  --text-small:      0.875rem;  /* 14px — captions, meta */
+  --text-mono-label: 0.8125rem; /* 13px — eyebrows, tags */
+
+  /* ---- Line heights ---- */
+  --leading-display: 1.05;
+  --leading-heading: 1.15;
+  --leading-body:    1.6;
+  --leading-tight:   1.35;
+
+  /* ---- Weights ---- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-display:  800; /* display sizes only */
+
+  /* ---- Tracking ---- */
+  --tracking-display: -0.02em;  /* tighten large sizes */
+  --tracking-heading: -0.01em;
+  --tracking-body:    0;
+  --tracking-mono:    0.08em;   /* mono labels run uppercase + spaced */
+}

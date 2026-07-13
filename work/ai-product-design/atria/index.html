@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="cs-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work/ai-product-design/" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← AI PRODUCT DESIGN</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="300px,20px">CASE STUDY — UX WRITING</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 860px; text-wrap: balance;">A lab result, ready for review — closing the worry loop</h1>
+    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Four notification variants that escalate by how much a member needs to act — anchored on the relationship with their doctor, not the raw data.</p>
+    <p style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.04em; line-height: 1.7; color: var(--text-muted); max-width: var(--measure); margin: 32px 0 0; padding: 16px 20px; border: var(--hairline); border-radius: var(--radius-sm); background: var(--surface-page);">A UX writing exercise from an interview process with Atria. Concept work — not shipped product.</p>
+  </div>
+</section>
+
+<section data-screen-label="s1-assumptions">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">01</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Assumptions and context</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">I'm assuming the typical Atria member is someone optimizing their health — not just observing and managing it. That's the key difference between what Atria offers and "traditional" GP's or healthcare models. As a digital experience, members are interested in the raw information their medical team has to offer, but more importantly what are the action steps to be taken. In other words, whatever "ideal health" means to that member is what the product should be helping them march towards. This isn't "Zocdoc" where it's almost like a parental, condescending "You forgot to schedule your dentist" appointment tone — this is about high-stakes health for ambitious (or high medical risk) people.</p>
+      
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s2-escalation">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 72px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">02</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">The copy — escalating by how much a member needs to act</h2>
+    </div>
+    <div style="max-width: 820px; margin-top: 36px; border: var(--hairline); border-radius: var(--radius-md); background: var(--surface-card); padding: 24px 32px 28px;">
+      <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px;"><b>STRATEGIC BRIEF</b></span>
+      <span style="display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;"><b>STRATEGIC GOAL</b></span>
+      <p style="font-size: 15px; line-height: 1.55; color: var(--text-primary); margin: 0 0 16px;">Communicate lab results are available while closing the "worry loop"</p>
+      <span style="display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;"><b>KEY MESSAGE AND EMOTIONAL DELTA</b></span>
+      <p style="font-size: 15px; line-height: 1.55; color: var(--text-primary); margin: 0 0 16px;">"Whatever your results are, your medical partner is here for you and will guide you through them together."</p>
+      <span style="display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;"><b>KEY ACTION(S)</b></span>
+      <p style="font-size: 15px; line-height: 1.55; color: var(--text-primary); margin: 0 0 16px;">Read note / Schedule time to talk / View results</p>
+      <span style="display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;"><b>KEY METRIC</b></span>
+      <p style="font-size: 15px; line-height: 1.55; color: var(--text-primary); margin: 0;">Reduction in anxiety-driven inbound messages — "where are my results?" inquiries; booked follow-ups only where their CMO recommends one</p>
+    </div>
+
+    <div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px 32px;">
+
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">VARIANT 1 — REVIEW PENDING</span>
+        <span style="display: block; font-size: 14px; color: var(--text-secondary); margin-top: 6px;">When results are available but CMO review is still pending.</span>
+        <div style="margin-top: 16px; border: var(--hairline); border-radius: 24px; background: #F4EFE5; padding: 26px 24px 32px; font-family: 'Helvetica Neue', Arial, sans-serif;" data-om-raster="">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0.14em; color: #22382C;">ATRIA</span>
+            <span style="width: 26px; height: 26px; border-radius: 50%; background: #22382C; color: #F4EFE5; font-size: 12px; display: flex; align-items: center; justify-content: center;">E</span>
+          </div>
+          <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; color: #1F2A22; margin-top: 20px;">Good morning, Emily.</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 6px;">TUESDAY, JUNE 16</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 20px;">WHAT MATTERS NOW</span>
+          <div style="margin-top: 10px; background: #FFFFFF; border-radius: 14px; padding: 18px 20px;">
+            <span style="display: inline-block; font-size: 9.5px; letter-spacing: 0.1em; color: #3E5C48; border: 1px solid #C9D4C5; border-radius: 999px; padding: 3px 10px;">HEALTH UPDATE</span>
+            <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1.3; color: #1F2A22; margin-top: 12px;">Your lab results are available</span>
+            <p style="font-size: 13px; line-height: 1.55; color: #4C4F49; margin: 10px 0 0;">Your care team is reviewing them alongside your health history and goals. You should hear from Dr. Garb in a few days.</p>
+            <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #ECE7DA;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: #E4DECE; color: #22382C; font-size: 11px; display: flex; align-items: center; justify-content: center;">G</span>
+              <span style="display: flex; flex-direction: column;"><span style="font-size: 12.5px; font-weight: 600; color: #1F2A22;">Dr. Garb</span><span style="font-size: 11px; color: #8A8674;">Chief Medical Officer · Your care team</span></span>
+            </div>
+            <span style="display: block; text-align: center; font-size: 13px; color: #3E5C48; margin-top: 14px;">View results</span>
+          </div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;"><strong style="color: var(--text-primary);">Notes:</strong> This framing helps the member to not read raw results as the whole story and offers reassurance by reminding them that context is more important than pure data.</p>
+      </div>
+
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">VARIANT 2 — APPOINTMENT BOOKED</span>
+        <span style="display: block; font-size: 14px; color: var(--text-secondary); margin-top: 6px;">When an appointment is already scheduled.</span>
+        <div style="margin-top: 16px; border: var(--hairline); border-radius: 24px; background: #F4EFE5; padding: 26px 24px 32px; font-family: 'Helvetica Neue', Arial, sans-serif;" data-om-raster="">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0.14em; color: #22382C;">ATRIA</span>
+            <span style="width: 26px; height: 26px; border-radius: 50%; background: #22382C; color: #F4EFE5; font-size: 12px; display: flex; align-items: center; justify-content: center;">E</span>
+          </div>
+          <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; color: #1F2A22; margin-top: 20px;">Good morning, Emily.</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 6px;">TUESDAY, JUNE 16</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 20px;">WHAT MATTERS NOW</span>
+          <div style="margin-top: 10px; background: #FFFFFF; border-radius: 14px; padding: 18px 20px;">
+            <span style="display: inline-block; font-size: 9.5px; letter-spacing: 0.1em; color: #3E5C48; border: 1px solid #C9D4C5; border-radius: 999px; padding: 3px 10px;">HEALTH UPDATE</span>
+            <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1.3; color: #1F2A22; margin-top: 12px;">Your lab results are available</span>
+            <p style="font-size: 13px; line-height: 1.55; color: #4C4F49; margin: 10px 0 0;">Dr. Garb is reviewing them now and will walk you through what they mean during your appointment on <strong>Thursday, June 18</strong>.</p>
+            <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #ECE7DA;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: #E4DECE; color: #22382C; font-size: 11px; display: flex; align-items: center; justify-content: center;">G</span>
+              <span style="display: flex; flex-direction: column;"><span style="font-size: 12.5px; font-weight: 600; color: #1F2A22;">Dr. Garb</span><span style="font-size: 11px; color: #8A8674;">Chief Medical Officer · Your care team</span></span>
+            </div>
+            <span style="display: block; text-align: center; font-size: 13px; color: #22382C; border: 1px solid #CFC9B8; border-radius: 8px; padding: 9px 0; margin-top: 14px;">See appointment details</span>
+            <span style="display: block; text-align: center; font-size: 13px; color: #22382C; border: 1px solid #CFC9B8; border-radius: 8px; padding: 9px 0; margin-top: 8px;">View results</span>
+          </div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;"><strong style="color: var(--text-primary);">Notes:</strong> Calling out their CMO/Doctor by name to humanize the moment and emphasizing that raw data may not fully give the full picture or determination.</p>
+      </div>
+
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">VARIANT 3 — DOCTOR NOTE PROVIDED</span>
+        <span style="display: block; font-size: 14px; color: var(--text-secondary); margin-top: 6px;">Results reviewed; member can read the note now.</span>
+        <div style="margin-top: 16px; border: var(--hairline); border-radius: 24px; background: #F4EFE5; padding: 26px 24px 32px; font-family: 'Helvetica Neue', Arial, sans-serif;" data-om-raster="">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0.14em; color: #22382C;">ATRIA</span>
+            <span style="width: 26px; height: 26px; border-radius: 50%; background: #22382C; color: #F4EFE5; font-size: 12px; display: flex; align-items: center; justify-content: center;">E</span>
+          </div>
+          <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; color: #1F2A22; margin-top: 20px;">Good morning, Emily.</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 6px;">TUESDAY, JUNE 16</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 20px;">WHAT MATTERS NOW</span>
+          <div style="margin-top: 10px; background: #FFFFFF; border-radius: 14px; padding: 18px 20px;">
+            <span style="display: inline-block; font-size: 9.5px; letter-spacing: 0.1em; color: #3E5C48; border: 1px solid #C9D4C5; border-radius: 999px; padding: 3px 10px;">HEALTH UPDATE</span>
+            <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1.3; color: #1F2A22; margin-top: 12px;">Dr. Garb has reviewed your recent results</span>
+            <p style="font-size: 13px; line-height: 1.55; color: #4C4F49; margin: 10px 0 0;">Dr. Garb has reviewed your results and left a note with a few recommended next steps. You can read it now, or schedule time to talk through it together.</p>
+            <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #ECE7DA;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: #E4DECE; color: #22382C; font-size: 11px; display: flex; align-items: center; justify-content: center;">G</span>
+              <span style="display: flex; flex-direction: column;"><span style="font-size: 12.5px; font-weight: 600; color: #1F2A22;">Dr. Garb</span><span style="font-size: 11px; color: #8A8674;">Chief Medical Officer · Your care team</span></span>
+            </div>
+            <span style="display: block; text-align: center; font-size: 13px; font-weight: 600; color: #F4EFE5; background: #22382C; border-radius: 8px; padding: 10px 0; margin-top: 14px;">Read Dr. Garb's note</span>
+            <span style="display: block; text-align: center; font-size: 13px; color: #22382C; border: 1px solid #CFC9B8; border-radius: 8px; padding: 9px 0; margin-top: 8px;">Schedule time to talk</span>
+          </div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;"><strong style="color: var(--text-primary);">Notes:</strong> We don't address the outcome of the results themselves in the notification. We focus only on the relationship with the doctor as what comes next, without overpromising or minimizing. It's not the data that they need to focus on, it's what their Atria partner is going to do for and with them.</p>
+      </div>
+
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent);">VARIANT 3B — FOLLOW-UP NEEDED</span>
+        <span style="display: block; font-size: 14px; color: var(--text-secondary); margin-top: 6px;">Physician invoked exception for in-person only.</span>
+        <div style="margin-top: 16px; border: var(--hairline); border-radius: 24px; background: #F4EFE5; padding: 26px 24px 32px; font-family: 'Helvetica Neue', Arial, sans-serif;" data-om-raster="">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0.14em; color: #22382C;">ATRIA</span>
+            <span style="width: 26px; height: 26px; border-radius: 50%; background: #22382C; color: #F4EFE5; font-size: 12px; display: flex; align-items: center; justify-content: center;">E</span>
+          </div>
+          <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 24px; color: #1F2A22; margin-top: 20px;">Good morning, Emily.</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 6px;">TUESDAY, JUNE 16</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 20px;">WHAT MATTERS NOW</span>
+          <div style="margin-top: 10px; background: #FFFFFF; border-radius: 14px; padding: 18px 20px;">
+            <span style="display: inline-block; font-size: 9.5px; letter-spacing: 0.1em; color: #3E5C48; border: 1px solid #C9D4C5; border-radius: 999px; padding: 3px 10px;">HEALTH UPDATE</span>
+            <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 19px; line-height: 1.3; color: #1F2A22; margin-top: 12px;">Dr. Garb would like to talk through your recent lab results with you</span>
+            <p style="font-size: 13px; line-height: 1.55; color: #4C4F49; margin: 10px 0 0;">Dr. Garb has reviewed your results and will explain what they mean along with any recommended next steps.</p>
+            <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #ECE7DA;">
+              <span style="width: 26px; height: 26px; border-radius: 50%; background: #E4DECE; color: #22382C; font-size: 11px; display: flex; align-items: center; justify-content: center;">G</span>
+              <span style="display: flex; flex-direction: column;"><span style="font-size: 12.5px; font-weight: 600; color: #1F2A22;">Dr. Garb</span><span style="font-size: 11px; color: #8A8674;">Chief Medical Officer · Your care team</span></span>
+            </div>
+            <span style="display: block; text-align: center; font-size: 13px; font-weight: 600; color: #F4EFE5; background: #22382C; border-radius: 8px; padding: 10px 0; margin-top: 14px;">Schedule time to talk</span>
+          </div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 14px 0 0; text-wrap: pretty;"><strong style="color: var(--text-primary);">Notes:</strong> In this variant, clinically significant results have made the physician want to communicate them in-person. Again, we don't want to overpromise or minimize the results. However, we stay authoritative yet reassuring they will be walked through it with their CMO. We focus only on the relationship with the doctor as what comes next. It's not the data that they need to focus on, it's what their Atria partner is going to do for and with them.</p>
+      </div>
+
+    </div>
+
+    <div style="max-width: var(--measure); margin-top: 56px;">
+      <h3 style="margin: 0; font-size: var(--text-h3); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-heading); color: var(--text-primary);">Mobile vs web portal</h3>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">The goal of the web portal isn't to use more of the available real estate, it's to let the existing information breathe and provide a slightly broader preview of information. The same information hierarchy would apply, but make sure to prioritize visually and through color/design any action steps needed. For example, in Variant 1 where no action is REQUIRED of the user, the layout would show a "calm" state — reassurance front and center, no prominent CTA. In the other variants where there is action to be taken, that CTA would be more prominently centered, with clear visual indicators for what the member needs to do.</p>
+    </div>
+
+    <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 32px; align-items: start;">
+
+      <figure style="margin: 0;" data-om-raster>
+        <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 12px;">FOLLOW-UP NEEDED · ROUTINE</span>
+        <div style="border: var(--hairline); border-radius: 10px; background: #F4EFE5; padding: 24px 26px 30px; font-family: 'Helvetica Neue', Arial, sans-serif;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0.14em; color: #22382C;">ATRIA</span>
+            <span style="display: flex; align-items: center; gap: 16px; font-size: 12px; color: #8A8674;"><span style="color: #1F2A22; font-weight: 600;">Today</span><span>Health</span><span>Messages</span><span>Profile</span><span style="width: 24px; height: 24px; border-radius: 50%; background: #22382C; color: #F4EFE5; font-size: 11px; display: flex; align-items: center; justify-content: center;">E</span></span>
+          </div>
+          <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 22px; color: #1F2A22; margin-top: 20px;">Good morning, Emily.</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 5px;">TUESDAY, JUNE 16</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 18px;">WHAT MATTERS NOW</span>
+          <div style="display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; margin-top: 10px; align-items: start;">
+            <div style="background: #FFFFFF; border-radius: 12px; padding: 16px 18px;">
+              <span style="display: inline-block; font-size: 9px; letter-spacing: 0.1em; color: #3E5C48; border: 1px solid #C9D4C5; border-radius: 999px; padding: 3px 9px;">HEALTH UPDATE</span>
+              <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.3; color: #1F2A22; margin-top: 10px;">Dr. Garb has reviewed your recent results</span>
+              <p style="font-size: 12px; line-height: 1.55; color: #4C4F49; margin: 8px 0 0;">Dr. Garb has reviewed your results and left a note with a few recommended next steps. You can read it now, or schedule time to talk through it together.</p>
+              <div style="display: flex; align-items: center; gap: 9px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #ECE7DA;">
+                <span style="width: 24px; height: 24px; border-radius: 50%; background: #E4DECE; color: #22382C; font-size: 10px; display: flex; align-items: center; justify-content: center;">G</span>
+                <span style="display: flex; flex-direction: column;"><span style="font-size: 11.5px; font-weight: 600; color: #1F2A22;">Dr. Garb</span><span style="font-size: 10px; color: #8A8674;">Chief Medical Officer · Your care team</span></span>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                <span style="font-size: 11.5px; font-weight: 600; color: #F4EFE5; background: #22382C; border-radius: 7px; padding: 8px 12px;">Read Dr. Garb's note</span>
+                <span style="font-size: 11.5px; color: #22382C; border: 1px solid #CFC9B8; border-radius: 7px; padding: 8px 12px;">Schedule time to talk</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div>
+                <span style="display: block; font-size: 9px; letter-spacing: 0.12em; color: #8A8674;">DR. GARB'S NOTE</span>
+                <p style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 12px; line-height: 1.55; color: #4C4F49; margin: 6px 0 0;">"Overall your results were reassuring. A couple of values — your LDL and vitamin D — came back a little outside the ideal range, which is common and very…"</p>
+                <span style="display: block; font-size: 11px; font-weight: 600; color: #22382C; margin-top: 6px;">Read full note →</span>
+              </div>
+              <div>
+                <span style="display: block; font-size: 9px; letter-spacing: 0.12em; color: #8A8674;">RESULTS REFERENCED</span>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: #1F2A22; padding: 7px 0; border-bottom: 1px solid #ECE7DA;"><span>Lipid panel</span><span style="color: #8A8674;">›</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: #1F2A22; padding: 7px 0; border-bottom: 1px solid #ECE7DA;"><span>A1C</span><span style="color: #8A8674;">›</span></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: #1F2A22; padding: 7px 0;"><span>Vitamin D</span><span style="color: #8A8674;">›</span></div>
+              </div>
+              <div>
+                <span style="display: block; font-size: 9px; letter-spacing: 0.12em; color: #8A8674;">UPCOMING</span>
+                <div style="display: flex; align-items: center; gap: 9px; margin-top: 6px;">
+                  <span style="display: flex; flex-direction: column; align-items: center; border: 1px solid #ECE7DA; border-radius: 6px; padding: 3px 7px; background: #FFFFFF;"><span style="font-size: 7px; letter-spacing: 0.1em; color: #8A8674;">JUN</span><span style="font-size: 12px; font-weight: 700; color: #1F2A22;">18</span></span>
+                  <span style="display: flex; flex-direction: column;"><span style="font-size: 11.5px; font-weight: 600; color: #1F2A22;">Telehealth visit</span><span style="font-size: 10px; color: #8A8674;">Thursday · 2:30 PM with Dr. Garb</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-top: 12px; text-wrap: pretty;">The mobile card defers the note, panels, and appointment behind a tap. The portal holds them visible at once — quiet in a second column, message and human still leading.</figcaption>
+      </figure>
+
+      <figure style="margin: 0;" data-om-raster>
+        <span style="display: block; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 12px;">FOLLOW-UP NEEDED · IN PERSON</span>
+        <div style="border: var(--hairline); border-radius: 10px; background: #F4EFE5; padding: 24px 26px 30px; font-family: 'Helvetica Neue', Arial, sans-serif;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 0.14em; color: #22382C;">ATRIA</span>
+            <span style="display: flex; align-items: center; gap: 16px; font-size: 12px; color: #8A8674;"><span style="color: #1F2A22; font-weight: 600;">Today</span><span>Health</span><span>Messages</span><span>Profile</span><span style="width: 24px; height: 24px; border-radius: 50%; background: #22382C; color: #F4EFE5; font-size: 11px; display: flex; align-items: center; justify-content: center;">E</span></span>
+          </div>
+          <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 22px; color: #1F2A22; margin-top: 20px;">Good morning, Emily.</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 5px;">TUESDAY, JUNE 16</span>
+          <span style="display: block; font-size: 10px; letter-spacing: 0.12em; color: #8A8674; margin-top: 18px;">WHAT MATTERS NOW</span>
+          <div style="display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; margin-top: 10px; align-items: start;">
+            <div style="background: #FFFFFF; border-radius: 12px; padding: 16px 18px;">
+              <span style="display: inline-block; font-size: 9px; letter-spacing: 0.1em; color: #3E5C48; border: 1px solid #C9D4C5; border-radius: 999px; padding: 3px 9px;">HEALTH UPDATE</span>
+              <span style="display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 1.3; color: #1F2A22; margin-top: 10px;">Dr. Garb would like to talk through your recent lab results with you</span>
+              <p style="font-size: 12px; line-height: 1.55; color: #4C4F49; margin: 8px 0 0;">Dr. Garb has reviewed your results and will explain what they mean along with any recommended next steps.</p>
+              <div style="display: flex; align-items: center; gap: 9px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #ECE7DA;">
+                <span style="width: 24px; height: 24px; border-radius: 50%; background: #E4DECE; color: #22382C; font-size: 10px; display: flex; align-items: center; justify-content: center;">G</span>
+                <span style="display: flex; flex-direction: column;"><span style="font-size: 11.5px; font-weight: 600; color: #1F2A22;">Dr. Garb</span><span style="font-size: 10px; color: #8A8674;">Chief Medical Officer · Your care team</span></span>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <span style="font-size: 11.5px; font-weight: 600; color: #F4EFE5; background: #22382C; border-radius: 7px; padding: 8px 12px;">Schedule time to talk</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <p style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 12px; line-height: 1.55; color: #4C4F49; margin: 0;">You and Dr. Garb will walk through everything together — what your results mean, what comes next, and any questions on your mind. There's nothing you need to prepare.</p>
+              <div>
+                <span style="display: block; font-size: 9px; letter-spacing: 0.12em; color: #8A8674;">SUGGESTED TIMES</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #FFFFFF; border: 1px solid #ECE7DA; border-radius: 8px; padding: 8px 10px; margin-top: 6px;"><span style="display: flex; flex-direction: column;"><span style="font-size: 11.5px; font-weight: 600; color: #1F2A22;">Thursday, Jun 18</span><span style="font-size: 10px; color: #8A8674;">2:30 PM · Telehealth</span></span><span style="color: #8A8674;">›</span></div>
+                <div style="display: flex; justify-content: space-between; align-items: center; background: #FFFFFF; border: 1px solid #ECE7DA; border-radius: 8px; padding: 8px 10px; margin-top: 6px;"><span style="display: flex; flex-direction: column;"><span style="font-size: 11.5px; font-weight: 600; color: #1F2A22;">Friday, Jun 19</span><span style="font-size: 10px; color: #8A8674;">11:00 AM · Telehealth</span></span><span style="color: #8A8674;">›</span></div>
+                <span style="display: block; font-size: 11px; font-weight: 600; color: #22382C; margin-top: 8px;">Find another time</span>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 8px; padding-top: 10px; border-top: 1px solid #ECE7DA;">
+                <span style="display: flex; flex-direction: column;"><span style="font-size: 11.5px; font-weight: 600; color: #1F2A22;">Message your care team →</span><span style="font-size: 10px; color: #8A8674;">For anything you need before then</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption style="font-size: 14px; line-height: 1.55; color: var(--text-secondary); margin-top: 12px; text-wrap: pretty;">No note preview, no result values. The width goes to the relationship — reassurance and effortless scheduling. The absence reads as care, not withholding.</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s3-voice" style="margin-top: 80px; background: var(--surface-card); border-top: var(--hairline); border-bottom: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 88px;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">03</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Voice and tone rationale</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">The work is on Atria to execute both in brand and product to fulfill the mission of "…care that would eliminate worry and uncertainty." The raw results are available to members but the data on its own isn't something a member can act on, and it's not what they're paying for. They're paying for insight, context and expertise from highly trained professionals, which the copy puts front and center: For example, "your doctor," and the action they're taking, "is reviewing."</p>
+      <div style="margin: 24px 0 0; border: var(--hairline); border-left: 2px solid var(--border-accent); border-radius: var(--radius-sm); background: var(--surface-page); padding: 16px 20px;">
+        <span style="display: block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 6px;">REGULATORY CONTEXT — CURES ACT</span>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--text-secondary); margin: 0; text-wrap: pretty;">Raw results release to members as soon as they're available — the notification layer can't withhold them, only frame them. The copy works with that constraint, not around it.</p>
+      </div>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">This isn't an Experian FICO credit report — "Your score went up, nice work!!" — that renders a Good/Bad verdict. Atria's job is to let them know that a highly qualified Atria medical team member — good news or not — is going to walk you through every step of this and explain what options exist.</p>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">The trade-off I made is for reassurance over immediate meaning. We could preview a value judgement based on the test results, but "test results" aren't why people come to Atria. The value is in the context provided and relationship members have with their CMO — a trusted partner in their health journey. So we anchor messaging around that medical professional's personal hand in their results — no matter what they are. For the 3b exception, I leaned more into a slightly more direct tone and would adopt any escalation policies Atria has for clinically or legally sensitive results.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s4-who">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 88px;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">04</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Who would you work with?</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">First stop would be my PM. If there wasn't a formal kick off for this and it was a one-off "let's improve this page/screen," I'd clarify what the metric for success was here. Are we trying to increase booked visits with the medical team? Better brand our medical team's positioning as partners in our members' care journey by reminding users that they are not alone and have a whole team behind them? From my conversation with Courtney, it sounds like we may not be optimizing for "traditional" short-term KPIs but rather looking at increasing the long-term value for members. If so, what does that look like and how do we capture it if it's not a usual numerical metric? NPS scores, for example, or reducing anxiety driven messaging to the care team. Secondly, what's our engineering bandwidth on this — what can actually change about the page, what can't and how much lead time do they need to do it?</p>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">My next conversation would be whoever the medical-product liaison might be. Someone who is available for the product team to speak with to formally or informally review member facing content. Potentially in lieu of this, I'd schedule time to speak with our legal counsel about what are the absolute must-nots as it relates to medical disclosures.</p>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 18px 0 0; text-wrap: pretty;">After that, I'd speak with my product design partner on this and ask what figma explorations they may have, if any. I'd approach with some loose boxes and arrows mock ups to help spur the conversation as well.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/ai-product-design/peloton" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← Peloton</a>
+    <a href="/work/ai-product-design/" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">All AI Product Design →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    try {
+      const key = 'culpepperux:visited';
+      const cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
+      const slug = '/work/ai-product-design/atria';
+      if (cur.indexOf(slug) === -1) {
+        cur.push(slug);
+        localStorage.setItem(key, JSON.stringify(cur));
+      }
+    } catch (e) {}
+  }
+
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

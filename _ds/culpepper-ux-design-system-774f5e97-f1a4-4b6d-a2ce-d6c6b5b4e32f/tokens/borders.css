@@ -1,0 +1,18 @@
+/* Culpepper UX — borders & radii
+   Hairline 1px everywhere. Minimal rounding. NO shadows, glows, or gradients —
+   depth comes from borders and surface shifts only. */
+
+:root {
+  --border-width: 1px;
+  --hairline: var(--border-width) solid var(--border-hairline);
+  --hairline-strong: var(--border-width) solid var(--border-strong);
+
+  --radius-xs:  2px;   /* tags, badges */
+  --radius-sm:  4px;   /* buttons, inputs */
+  --radius-md:  6px;   /* cards */
+  --radius-lg:  10px;  /* modals, large media — maximum rounding in the system */
+  --radius-full: 999px; /* pills — used sparingly (filter chips only) */
+
+  /* Shadows are intentionally absent. Token exists so nobody invents one. */
+  --shadow-none: none;
+}

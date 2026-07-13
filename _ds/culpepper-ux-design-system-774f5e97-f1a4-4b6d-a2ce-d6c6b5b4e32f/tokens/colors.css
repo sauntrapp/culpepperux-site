@@ -1,0 +1,52 @@
+/* Culpepper UX — color tokens
+   One accent (deep navy), otherwise strictly neutral. No secondary brights,
+   no gradients. Semantic aliases below the base ramp. */
+
+:root {
+  /* ---- Base: navy accent ---- */
+  --navy-900: #0B1626;  /* near-black navy — darkest */
+  --navy-800: #10203A;  /* PRIMARY accent — buttons, links, emphasis */
+  --navy-700: #1B3355;  /* hover / lifted state of accent */
+  --navy-100: #E8EDF4;  /* subtle navy tint — selected fills, quiet chips */
+
+  /* ---- Base: neutrals ---- */
+  --white:    #FFFFFF;
+  --paper:    #FAFAF7;  /* off-white page surface */
+  --gray-050: #F4F4F1;  /* inset / recessed surface */
+  --gray-200: #E6E6E1;  /* hairline borders */
+  --gray-300: #D2D2CC;  /* stronger border, dividers under tension */
+  --gray-500: #8A8C90;  /* muted text, placeholders */
+  --gray-700: #4C4F54;  /* secondary text */
+  --ink:      #141517;  /* primary text, near-black */
+
+  /* ---- Semantic: text ---- */
+  --text-primary:   var(--ink);
+  --text-secondary: var(--gray-700);
+  --text-muted:     var(--gray-500);
+  --text-inverse:   var(--white);
+  --text-accent:    var(--navy-800);
+
+  /* ---- Semantic: surfaces ---- */
+  --surface-page:   var(--paper);
+  --surface-card:   var(--white);
+  --surface-inset:  var(--gray-050);
+  --surface-accent: var(--navy-800);
+  --surface-accent-subtle: var(--navy-100);
+
+  /* ---- Semantic: borders ---- */
+  --border-hairline: var(--gray-200);
+  --border-strong:   var(--gray-300);
+  --border-accent:   var(--navy-800);
+
+  /* ---- Semantic: interactive ---- */
+  --accent:        var(--navy-800);
+  --accent-hover:  var(--navy-700);
+  --accent-active: var(--navy-900);
+  --focus-ring:    var(--navy-700);
+
+  /* ---- Semantic: feedback (kept quiet — tinted neutrals, no brights) ---- */
+  --ok-fg:    #1F5136;
+  --ok-bg:    #EDF3EE;
+  --error-fg: #7A2E2E;
+  --error-bg: #F7EEEC;
+}

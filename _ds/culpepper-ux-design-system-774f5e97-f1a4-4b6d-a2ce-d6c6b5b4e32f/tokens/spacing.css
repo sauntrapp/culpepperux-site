@@ -1,0 +1,20 @@
+/* Culpepper UX — spacing tokens
+   4px base. Generous whitespace is the brand: default to the larger step. */
+
+:root {
+  --space-1:  0.25rem;  /*   4px — icon gaps */
+  --space-2:  0.5rem;   /*   8px — inside compact controls */
+  --space-3:  0.75rem;  /*  12px — control padding */
+  --space-4:  1rem;     /*  16px — small gaps */
+  --space-6:  1.5rem;   /*  24px — card padding */
+  --space-8:  2rem;     /*  32px — card padding (roomy), gaps between cards */
+  --space-12: 3rem;     /*  48px — section-internal spacing */
+  --space-16: 4rem;     /*  64px — between sections (min) */
+  --space-24: 6rem;     /*  96px — between major sections */
+  --space-32: 8rem;     /* 128px — hero breathing room */
+
+  /* ---- Layout ---- */
+  --measure:        68ch;    /* max line length for body copy */
+  --page-max-width: 1200px;
+  --page-gutter:    var(--space-8);
+}
