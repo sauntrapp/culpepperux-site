@@ -99,7 +99,8 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
   flex:1;display:flex;align-items:center;justify-content:center}
 
 /* ---- PLAY ---- */
-#scr-play{background:var(--wall);padding:8px 10px calc(10px + env(safe-area-inset-bottom));justify-content:space-between}
+#scr-play{background:var(--wall);padding:8px 10px calc(10px + env(safe-area-inset-bottom));justify-content:space-between;
+  overflow-y:auto} /* short viewports scroll instead of clipping the third option */
 #hud{display:flex;align-items:center;gap:8px;padding:2px 2px 6px}
 #hud .hlabel{font-family:var(--pxfont);font-size:8px;color:var(--ink);line-height:1.4}
 #meter{flex:1;display:flex;gap:2px;height:18px;padding:3px;background:var(--ink);border:2px solid var(--ink);border-radius:3px}
@@ -114,6 +115,19 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 .folk .nm{font-family:var(--pxfont);font-size:6px;color:var(--ink)}
 .folk.center-user{order:0}
 
+/* ---- journey strip — WHERE the user is standing in the real flow ---- */
+#journey{display:flex;justify-content:center;padding:8px 0 10px}
+.jn{display:flex;flex-direction:column;align-items:center;width:66px;position:relative}
+.jn .dot{width:10px;height:10px;background:#cabfa4;border:2px solid var(--ink)}
+.jn.done .dot{background:var(--green)}
+.jn.here .dot{background:var(--gold)}
+.jn .lb{font-family:var(--pxfont);font-size:5.5px;color:#8a80ad;margin-top:5px;text-align:center;line-height:1.7;letter-spacing:.5px}
+.jn.done .lb{color:#5a8a5e}
+.jn.here .lb{color:var(--ink)}
+.jn .ym{position:absolute;top:-12px;font-family:var(--pxfont);font-size:8px;color:var(--gold2);line-height:1}
+.jn:not(:last-child)::after{content:"";position:absolute;top:6px;left:calc(50% + 8px);width:calc(100% - 16px);height:2px;background:#b7ab8d}
+.jn.done:not(:last-child)::after{background:var(--green)}
+
 #phonewrap{display:flex;justify-content:center;padding:2px 0}
 #phone{
   width:min(78%,270px);background:#fbf7ee;border:4px solid var(--ink);
@@ -126,6 +140,12 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 .ph-b{font-family:var(--readfont);font-size:17.5px;line-height:1.18;color:#4a4468;padding-left:2px}
 .ph-b .bl{display:flex;gap:6px;margin-bottom:3px}
 .ph-b .bl::before{content:"▪";color:var(--gold2);flex:0 0 auto}
+.ph-b .bl.ck::before{content:"✓";color:#3f9d63;font-family:var(--uifont);font-weight:700}
+.ph-pill{display:inline-block;font-family:var(--uifont);font-size:11px;font-weight:700;color:#fff;
+  background:#3f9d63;border-radius:9px;padding:2px 9px;margin:0 0 6px}
+.ph-eyebrow{font-family:var(--uifont);font-size:10.5px;font-weight:700;letter-spacing:1.5px;color:#6b6580;margin-bottom:4px}
+.ph-cta.ph-cta2{background:#e0704f;border-color:#b5502f;margin-top:9px}
+.ph-skip{font-family:var(--uifont);font-size:12.5px;font-weight:600;color:#6b6580;text-align:center;margin-top:8px}
 .greek{height:8px;background:#ddd4bf;border-radius:2px;margin:5px 0}
 .greek.w60{width:60%}.greek.w80{width:80%}
 .tiers{display:flex;gap:6px;margin-top:9px}
@@ -135,7 +155,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 .tier.hot{border-color:var(--gold2);background:#fff8e2}
 .ph-cta{
   display:block;margin:12px auto 2px;padding:11px 10px;width:96%;
-  background:#2f7fe3;color:var(--white);border:2px solid #1a4c96;border-radius:6px;
+  background:#e0704f;color:var(--white);border:2px solid #b5502f;border-radius:6px;
   font-family:var(--readfont);font-size:20px;text-align:center;min-height:44px;line-height:1.05;
 }
 .ph-check{width:34px;height:34px;margin:2px auto 8px;background:var(--green);border:2px solid #2c7a38;border-radius:50%;
@@ -175,7 +195,8 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 #dlg-next{position:absolute;right:12px;bottom:7px;color:var(--white);font-size:13px;background:none;border:0;cursor:pointer;font-family:var(--pxfont)}
 
 /* ---- RESULTS / DEBRIEF — FF-style results panel ---- */
-#scr-debrief{background:var(--panel);padding:14px 12px calc(12px + env(safe-area-inset-bottom));overflow-y:auto}
+#scr-debrief{background:var(--panel);padding:46px 12px calc(12px + env(safe-area-inset-bottom));overflow-y:auto} /* top padding clears the home chip */
+@media (min-width:768px){ #scr-debrief{padding-top:16px} }
 .rs-title{font-family:var(--pxfont);font-size:13px;color:var(--gold);text-align:center;margin:2px 0 4px;letter-spacing:1px}
 .rs-sub{font-family:var(--readfont);font-size:20px;color:var(--silver);text-align:center;margin-bottom:10px;line-height:1.1}
 #rs-hero{display:flex;justify-content:center;margin-bottom:8px}
@@ -192,6 +213,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 .rs-round h3{font-family:var(--pxfont);font-size:8px;color:var(--gold);margin-bottom:4px;line-height:1.6}
 .rs-round .pick{font-family:var(--readfont);font-size:18px;color:var(--white);line-height:1.12}
 .rs-round .why{font-family:var(--readfont);font-size:18px;color:var(--silver);line-height:1.12;margin-top:3px}
+#rs-foot{font-family:var(--readfont);font-size:16.5px;line-height:1.15;color:#9aa4cd;border-top:1px solid #33305e;padding-top:8px;margin-top:2px}
 .rs-next{display:block;margin:10px auto 2px}
 
 /* ---- END CARD ---- */
@@ -205,6 +227,54 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 }
 .endbtn.gold{background:#7a5a10;border-color:var(--gold)}
 #honesty{font-family:var(--readfont);font-size:18px;color:var(--silver);max-width:36ch;line-height:1.15}
+
+/* ---- persistent home link (hidden during rounds to keep play chrome clean) ---- */
+#homechip{
+  position:absolute;top:8px;right:8px;z-index:80;
+  font-family:var(--pxfont);font-size:7px;letter-spacing:1px;color:var(--white);
+  background:var(--ink);border:2px solid var(--white);box-shadow:2px 2px 0 rgba(26,19,48,.45);
+  padding:7px 9px;text-decoration:none;line-height:1;
+}
+#homechip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+body[data-scr="scr-play"] #homechip{display:none}
+body[data-scr="scr-scene"] #homechip{display:none}
+
+/* ---- debrief outcome tiers — good / better / best, never negative ---- */
+#rs-tier{font-family:var(--pxfont);font-size:11px;text-align:center;margin:0 0 7px;letter-spacing:1px;line-height:1.6}
+#scr-debrief[data-tier="gold"]   #rs-tier{color:var(--gold)}
+#scr-debrief[data-tier="silver"] #rs-tier{color:#dfe7ff}
+#scr-debrief[data-tier="bronze"] #rs-tier{color:#e79a5d}
+#scr-debrief[data-tier="gold"]   .rs-box{border-color:var(--gold)}
+#scr-debrief[data-tier="silver"] .rs-box{border-color:#dfe7ff}
+#scr-debrief[data-tier="bronze"] .rs-box{border-color:#e79a5d}
+.mk{display:inline-block;width:9px;height:9px;margin-right:6px;vertical-align:-1px;border:1px solid var(--silver)}
+.mk-gold{background:var(--gold);border-color:var(--gold)}
+.mk-half{background:linear-gradient(90deg,var(--gold) 50%,#33305e 50%);border-color:var(--gold)}
+.mk-dim{background:#33305e}
+
+/* ---- wide screens: the playthrough's split composition (phone left, options right) ---- */
+@media (min-width:768px) and (min-height:480px){
+  #stage{width:min(100vw,940px);height:min(100dvh,664px);border:4px solid var(--ink)}
+  #scr-title{flex-direction:row}
+  #cv-title{width:54%;align-self:center}
+  #title-panel{border-top:0;border-left:4px solid var(--ink)}
+  #cv-scene{width:min(92%,620px);margin:12px auto 0}
+  /* .on required — a bare #scr-play selector outranks the screen show/hide rules
+     and leaves the empty play screen painted over the title on wide windows */
+  #scr-play.on{display:grid;grid-template-columns:44% 1fr;grid-template-rows:auto auto auto 1fr;
+    grid-template-areas:"hud hud" "journey journey" "folks moment" "phone opts";column-gap:18px;align-content:start;
+    padding:14px 18px}
+  #hud{grid-area:hud;padding-bottom:6px}
+  #journey{grid-area:journey;padding-bottom:14px}
+  #folks{grid-area:folks;align-self:end}
+  #phonewrap{grid-area:phone;align-self:start}
+  #phone{width:min(100%,282px)}
+  #moment{grid-area:moment;align-self:end;text-align:left;padding-left:2px}
+  #opts{grid-area:opts;align-self:center;padding-bottom:56px} /* optically centered against the phone column */
+  #dialog{left:0;right:0;max-width:700px;margin:0 auto;bottom:14px}
+  #scr-debrief>*{max-width:600px;width:100%;margin-left:auto;margin-right:auto}
+  #scr-debrief .rs-next{width:auto}
+}
 
 /* ---- confetti layer ---- */
 #cv-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:60;display:none}
@@ -248,6 +318,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
       <span id="roundtag">ROUND 1/3</span>
     </div>
     <div id="folks" aria-hidden="true"></div>
+    <div id="journey" role="img"></div>
     <div id="phonewrap">
       <div id="phone" aria-live="polite">
         <div class="notch"></div>
@@ -261,6 +332,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 
   <section id="scr-debrief" class="scr">
     <div class="rs-title">DEBRIEF</div>
+    <div id="rs-tier"></div>
     <div class="rs-sub" id="rs-verdictline"></div>
     <div id="rs-hero"><canvas id="cv-hero" width="32" height="40" aria-hidden="true"></canvas></div>
     <div class="rs-box">
@@ -270,6 +342,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
       <div class="rs-row"><span class="rs-k">PURCHASES</span><span class="rs-v">137</span></div>
     </div>
     <div id="rs-rounds"></div>
+    <p id="rs-foot">Also in the real journey: a guided-quiz entry point whose result screen used the user's own answers to make the recommendation feel personal, not promotional. This game plays one path — the quiz path lives in the full case study.</p>
     <button class="startbtn rs-next" id="btn-tocard"><span>NEXT</span></button>
   </section>
 
@@ -278,8 +351,11 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
     <canvas id="cv-end" width="24" height="33" aria-hidden="true"></canvas>
     <button class="endbtn" id="btn-again"><canvas class="fing" width="16" height="14" aria-hidden="true"></canvas>PLAY AGAIN</button>
     <a class="endbtn gold" id="btn-case" href="/work/content-design/senior-care-advisor">READ THE REAL CASE STUDY →</a>
+    <a class="endbtn" id="btn-home" href="https://culpepperux.com">BACK TO CULPEPPERUX.COM →</a>
     <p id="honesty">All winning copy and results are from real, tested work at Care.com.</p>
   </section>
+
+  <a id="homechip" href="https://culpepperux.com">CULPEPPERUX.COM ↗</a>
 
   <div id="dialog" role="dialog" aria-live="polite">
     <div id="dlg-name"></div>
@@ -321,54 +397,50 @@ const CONTENT = {
     {n:"PM", t:"Review each screen, choose the copy that works best. Best isn't loudest — it's what gives a stressed user just enough, and holds all of us at once. The real A/B data keeps score."}
   ],
   rounds: [
-    /* ---------------- ROUND 1 — the pre-rate card ---------------- */
+    /* ---------------- ROUND 1 — the pre-rate card ----------------
+       Isolated-variable design (Duval's call, July 13 2026): the three
+       bullets are the REAL shipped bullets and stay constant; only the
+       headline varies — mirroring how the real screen actually tested. */
     {
       tag:"ROUND 1/3", screen:"ratecard",
-      moment:"An unfamiliar $349 service. One header, three bullets. Say just enough.",
+      // Canonized: this is the POST-ENROLLMENT pre-rate card (the shipped screen
+      // Duval supplied uses "Learn more" — the deliberate low-pressure entry).
+      moment:"They just enrolled in regular care — they weren't shopping for this $349 service. Which headline meets them here?",
+      // REAL-VERBATIM bullets from the shipped pre-rate card (source: Duval-provided
+      // screenshot). Note: "step-by step-support" normalized to "step-by-step support" — verify.
+      bullets:[
+        "You're never alone - get 90 days of expert, step-by-step support",
+        "Comprehensive care plan with vetted resources",
+        "Guidance on complex medical needs, care expenses, family dynamics, and more"
+      ],
       options:[
-        { // CORRECT — real approach: header + three bullets, "just enough context to feel confident"
-          // PLACEHOLDER-REAL-DRAFT (drafted from case-study language; verify vs shipped copy)
-          menu:"Expert guidance for your family's senior care search",
-          h:"Expert guidance for your family's senior care search",
-          bullets:[
-            "Talk 1-on-1 with a trained senior care advisor",
-            "Get a plan built around your family's situation",
-            "Know your next step — and the one after that"
-          ],
+        { // CORRECT — REAL-VERBATIM shipped header (source: Duval-provided screenshot)
+          menu:"Get paired with a Senior Care Advisor",
+          h:"Get paired with a Senior Care Advisor",
           q:3,
           react:[
             {n:"LEGAL", t:"Clear, accurate, nothing I need to flag."},            // canon line
             {n:"THE USER", t:"…okay. I understand what this is."}                  // canon line
           ],
           m:{LEGAL:"smile","THE USER":"smile",GM:"smile",PM:"smile"},
-          pickLabel:"You picked the real header — clear, concrete, calm.",
+          pickLabel:"You picked the real header: “Get paired with a Senior Care Advisor.”",
           why:"" // winner needs no qualification
         },
-        { // PLACEHOLDER-DISTRACTOR — overloaded feature dump
+        { // PLACEHOLDER-DISTRACTOR — overloaded feature-dump header
           menu:"Senior Care Advisor Premium: consults, matching, roadmaps + more",
           h:"Senior Care Advisor Premium: consults, matching, roadmaps + more",
-          bullets:[
-            "1-on-1 video consults, unlimited chat + priority email support",
-            "Curated caregiver matches, vetted facility lists, resource library",
-            "Custom care roadmaps, budget tools, insurance checklists + more"
-          ],
           q:1,
           react:[
             {n:"GM", t:"I love the energy — do users know what they're buying yet?"}, // canon line
             {n:"THE USER", t:"That's… a lot. I just need to know if this helps my mom."}
           ],
           m:{GM:"hmm","THE USER":"hmm"},
-          pickLabel:"You picked the feature dump.",
-          why:"Feature dump = cognitive load. Every extra claim is one more thing a stressed reader has to carry."
+          pickLabel:"You picked the feature-dump header.",
+          why:"The bullets already carry the detail — a header that shouts every feature adds cognitive load before the reading even starts. The real header names one clear thing."
         },
-        { // PLACEHOLDER-DISTRACTOR — vague warm-fuzzy, nothing concrete
-          menu:"You're not alone on this journey",
-          h:"You're not alone on this journey",
-          bullets:[
-            "Care that comes from the heart",
-            "Here for you, every step of the way",
-            "Because family means everything"
-          ],
+        { // PLACEHOLDER-DISTRACTOR — vague warm-fuzzy header, nothing concrete
+          menu:"We're here for you, whatever comes next",
+          h:"We're here for you, whatever comes next",
           q:1,
           react:[
             {n:"THE USER", t:"That's kind. Truly. But… what is it?"},
@@ -376,16 +448,16 @@ const CONTENT = {
           ],
           m:{"THE USER":"hmm",LEGAL:"hmm"},
           pickLabel:"You picked the warm-fuzzy header.",
-          why:"Warmth without information leaves a stressed user exactly as uncertain as before. Comfort isn't context."
+          why:"The real copy is warm too — “You're never alone” — but it earns that warmth with 90 concrete days of support. A headline that only soothes makes a stressed user work out what this even is."
         }
       ],
       real:0,
-      realLine:"The real ship: a header + three bullets giving just enough context to feel confident."
+      realLine:"The real ship: “Get paired with a Senior Care Advisor” — it names the service and the action, and lets three concrete bullets do the convincing."
     },
     /* ---------------- ROUND 2 — the CTA ---------------- */
     {
       tag:"ROUND 2/3", screen:"landing",
-      moment:"The landing page. They've read why this matters. The button makes the ask.",
+      moment:"They tapped “Learn more.” Now they've read why this matters. What has this moment earned the right to ask?",
       options:[
         { // CORRECT — real CTA at the landing moment (verbatim from case study)
           menu:"Get paired with an advisor",
@@ -430,7 +502,7 @@ const CONTENT = {
     /* ---------------- ROUND 3 — the confirmation screen ---------------- */
     {
       tag:"ROUND 3/3", screen:"confirm",
-      moment:"They just committed $349 to help someone they love. What do they read first?",
+      moment:"They just paid $349 for someone they love — through a booking screen that didn't even look like ours. What do they read first?",
       options:[
         { // CORRECT — real "What's next" sequence approach
           // PLACEHOLDER-REAL-DRAFT (drafted from case-study language; verify vs shipped copy)
@@ -494,13 +566,21 @@ const CONTENT = {
     sub:"The team always ships. The question was how well the words held everyone."
   },
   debrief:{
-    perfect:"A perfect ship — your copy is the copy that won.",
-    good:"The team shipped. Here's what the data taught us.",          // canon line
+    // Outcome tiers — good/better/best, never negative. Real numbers stay
+    // constant (locked canon: never invent metrics; distractors were never
+    // shipped, so no number exists for them). Tier names/lines are invented
+    // strings — see canonization note for Duval's review.
+    tiers:{
+      gold:  {name:"THE SHIP THAT WON",      line:"A perfect ship — your copy is the copy that won."},
+      silver:{name:"A STRONG SHIP",          line:"Two of three real winners aboard. Here's what the data taught us."},   // uses canon line
+      bronze:{name:"THE SHIP THAT TAUGHT US",line:"The team shipped — and this run had the most to teach."}
+    },
     realNumbers:{lift:"+28% CONVERSION", rev:"$48K", buys:"137"}
   },
   end:{
     honesty:"All winning copy and results are from real, tested work at Care.com.",
-    caseHref:"/work/content-design/senior-care-advisor"
+    caseHref:"/work/content-design/senior-care-advisor",
+    homeHref:"https://culpepperux.com"
   }
 };
 
@@ -607,6 +687,16 @@ function npcField(opts){
     "...OSSSSSSSSO...",
     "....OSSssSSO....",
     ".....OSSSSO....."],
+    long:[ // shoulder-length hair framing the face
+    "....OOOOOOOO....",
+    "...OHHHHHHHHO...",
+    "..OHHHHHHHHHHO..",
+    "..OHhHHHHHHhHO..",
+    "..OHHSSSSSSHHO..",
+    "..OHHSWSSWSHHO..",
+    "..OHHSSSSSSHHO..",
+    "..OHHSssSSHHHO..",
+    "...OHSSSSSSHO..."],
     bun:[ // bun on top, gray-streaked
     "......OOOO......",
     ".....OHhHHO.....",
@@ -637,7 +727,7 @@ function npcField(opts){
   return spriteFromMap(rows.slice(0,24), p, 16);
 }
 const NPC_STYLE = {
-  "PM":      {hairStyle:"short", hair:"#3d2b1f", skin:"#e0b48a", skinSh:"#c29365", top:"#2f8f83", topSh:"#23695f", bottom:"#4a4258"},
+  "PM":      {hairStyle:"long", hair:"#e8c96a", hairHi:"#f7e3a0", skin:"#f0c9a2", skinSh:"#d3a67c", top:"#2f8f83", topSh:"#23695f", bottom:"#4a4258"},
   "LEGAL":   {hairStyle:"bob",   hair:"#17111c", skin:"#e8c39a", skinSh:"#caa070", top:"#31437c", topSh:"#243158", bottom:"#3a3348"},
   "GM":      {hairStyle:"short", hair:"#241a12", skin:"#8a5a34", skinSh:"#6f4626", top:"#a03a4e", topSh:"#7c2c3c", bottom:"#3a3348"},
   "THE USER":{hairStyle:"bun",   hair:"#6f6a70", hairHi:"#c9c4c9", skin:"#d9a878", skinSh:"#b8875a", top:"#8f7fc0", topSh:"#6f5f9c", bottom:"#5a5266"}
@@ -660,6 +750,9 @@ function makePortrait(spec, mood){
     px(10,6,spec.hairHi); px(20,4,spec.hairHi); px(6,12,spec.hairHi); px(25,10,spec.hairHi); px(15,3,spec.hairHi);
   }else if(spec.hairStyle==="bob"){
     rect(7,4,18,16,spec.hair); disc(16,7,9,spec.hair);
+  }else if(spec.hairStyle==="long"){
+    rect(6,4,20,22,spec.hair); disc(16,7,9,spec.hair);
+    px(9,6,spec.hairHi); px(22,5,spec.hairHi); px(7,14,spec.hairHi); px(24,18,spec.hairHi);
   }else if(spec.hairStyle==="bun"){
     disc(16,4,4,spec.hair); rect(8,7,16,7,spec.hair); px(14,3,spec.hairHi); px(17,2,spec.hairHi);
   }else{ // short
@@ -717,8 +810,8 @@ function outline(g,w,h,col){
 const PORTRAIT_SPEC = {
   "DUVAL":   {afro:true, hair:"#4a2e1c", hairHi:"#5d3b25", skin:"#c68b59", skinSh:"#a96e41", brow:"#3a2314",
               faceTop:12, eyeY:17, top:"#f2e8d5", stripes:true, topStripe:"#8c8474", collar:true, scruff:true},
-  "PM":      {hairStyle:"short", hair:"#3d2b1f", hairHi:"#544033", skin:"#e0b48a", skinSh:"#c29365", brow:"#2d2018",
-              faceTop:10, eyeY:16, top:"#2f8f83"},
+  "PM":      {hairStyle:"long", hair:"#e8c96a", hairHi:"#f7e3a0", skin:"#f0c9a2", skinSh:"#d3a67c", brow:"#a3763a",
+              faceTop:11, eyeY:16, top:"#2f8f83"},
   "LEGAL":   {hairStyle:"bob", hair:"#17111c", hairHi:"#2a2233", skin:"#e8c39a", skinSh:"#caa070", brow:"#17111c",
               faceTop:11, eyeY:16, top:"#31437c", glasses:true},
   "GM":      {hairStyle:"short", hair:"#241a12", hairHi:"#3a2c20", skin:"#8a5a34", skinSh:"#6f4626", brow:"#1c130c",
@@ -785,20 +878,21 @@ function drawOffice(cv, opts){
   // plants left+right (skip when the whole team gathers — nobody stands in the ficus)
   const bigCast = opts && opts.cast && opts.cast.length>2;
   if(!bigCast){ plant(g, 4, horizon-26); plant(g, W-26, horizon-26); }
-  // desk (center)
   const dx=Math.floor(W/2)-34, dy=horizon-8;
+  // Duval BEHIND the desk, feet on the floor (desk occludes his legs) —
+  // equal footing with the team, never standing on furniture
+  const dv = duvalField(opts && opts.crown);
+  g.drawImage(dv, 0,0,16,dv.height, dx+36, dy+10-dv.height*2, 32, dv.height*2);
+  // desk (center) — drawn after Duval so it fronts him
   g.fillStyle="#221737"; g.fillRect(dx-2,dy-2,72,22);
   g.fillStyle="#b07a3f"; g.fillRect(dx,dy,68,8);
   g.fillStyle="#8a5a28"; g.fillRect(dx,dy+8,68,10);
   g.fillStyle="#6f4620"; g.fillRect(dx+4,dy+18,6,10); g.fillRect(dx+58,dy+18,6,10);
-  // monitor on desk
-  g.fillStyle="#221737"; g.fillRect(dx+22,dy-22,26,20);
-  g.fillStyle="#bfe8ff"; g.fillRect(dx+24,dy-20,22,14);
-  g.fillStyle="#31437c"; g.fillRect(dx+26,dy-18,18,2); g.fillRect(dx+26,dy-14,13,2); g.fillRect(dx+26,dy-10,16,2);
-  g.fillStyle="#221737"; g.fillRect(dx+33,dy-2,4,2);
-  // Duval at the desk (2× scale sprite) — afro silhouette front and center
-  const dv = duvalField(opts && opts.crown);
-  g.drawImage(dv, 0,0,16,dv.height, dx+26, dy-6-48+ (dv.height>24?-10:0), 32, dv.height*2);
+  // monitor on the desk, left of Duval
+  g.fillStyle="#221737"; g.fillRect(dx+4,dy-22,26,20);
+  g.fillStyle="#bfe8ff"; g.fillRect(dx+6,dy-20,22,14);
+  g.fillStyle="#31437c"; g.fillRect(dx+8,dy-18,18,2); g.fillRect(dx+8,dy-14,13,2); g.fillRect(dx+8,dy-10,16,2);
+  g.fillStyle="#221737"; g.fillRect(dx+15,dy-2,4,2);
   // extra cast
   if(opts && opts.cast){
     const places = [[dx-36,dy-28],[dx+76,dy-28],[dx-62,dy-14],[dx+102,dy-14]];
@@ -845,6 +939,7 @@ function locked(){ return performance.now() < Game.lockUntil; }
 function show(id){
   document.querySelectorAll(".scr").forEach(el=>el.classList.remove("on"));
   $(id).classList.add("on");
+  document.body.dataset.scr = id.slice(1); // drives the home-chip visibility
 }
 function setState(st, sub){
   Game.state = st; Game.sub = sub||"";
@@ -896,6 +991,19 @@ function enterRound(){
     d.append(cv,t); folks.append(d); d.dataset.nm=nm;
   });
   $("#moment").textContent = R.moment;
+  // journey strip — mirrors the real case-study flow; ▼ marks where the user is standing
+  const JN = ["ENROLLED","RATE CARD","LANDING","BOOKING","CONFIRM"];
+  const hereIdx = [1,2,4][Game.round];
+  const jw = $("#journey"); jw.innerHTML="";
+  JN.forEach((lb,i)=>{
+    const n=document.createElement("div");
+    n.className = "jn"+(i<hereIdx?" done":i===hereIdx?" here":"");
+    if(i===hereIdx){ const m=document.createElement("span"); m.className="ym"; m.textContent="▼"; n.append(m); }
+    const d=document.createElement("span"); d.className="dot";
+    const t=document.createElement("span"); t.className="lb"; t.textContent=lb;
+    n.append(d,t); jw.append(n);
+  });
+  jw.setAttribute("aria-label","journey: "+JN.slice(0,hereIdx).join(" done, ")+" done — you are here: "+JN[hereIdx]);
   // options
   const opts=$("#opts"); opts.innerHTML="";
   R.options.forEach((o,i)=>{
@@ -927,16 +1035,17 @@ function renderPreview(){
   const o = R.options[Game.sel];
   const c = $("#ph-content");
   if(R.screen==="ratecard"){
+    // recreated from the real shipped screen: pill, eyebrow, header (the variable),
+    // the three real bullets (constant), static "Learn more" + skip link (real copy, not choices)
     c.innerHTML =
+      "<div class='ph-pill'>Specialty service</div>"+
+      "<div class='ph-eyebrow'>EXPERT GUIDANCE</div>"+
       "<div class='ph-h'></div>"+
-      "<div class='ph-b'>"+o.bullets.map(()=>"<div class='bl'><span></span></div>").join("")+"</div>"+
-      "<div class='tiers'>"+
-        "<div class='tier'><div class='tg'></div><div class='tg'></div><div class='pr'>$ —</div></div>"+
-        "<div class='tier hot'><div class='tg'></div><div class='tg'></div><div class='pr'>$349</div></div>"+
-        "<div class='tier'><div class='tg'></div><div class='tg'></div><div class='pr'>$ —</div></div>"+
-      "</div>";
+      "<div class='ph-b'>"+R.bullets.map(()=>"<div class='bl ck'><span></span></div>").join("")+"</div>"+
+      "<button class='ph-cta ph-cta2' tabindex='-1'>Learn more</button>"+
+      "<div class='ph-skip'>Skip benefits and stay limited</div>";
     c.querySelector(".ph-h").textContent = o.h;
-    c.querySelectorAll(".bl span").forEach((el,k)=>el.textContent=o.bullets[k]);
+    c.querySelectorAll(".bl span").forEach((el,k)=>el.textContent=R.bullets[k]);
   }else if(R.screen==="landing"){
     c.innerHTML =
       "<div class='ph-h'>When family needs help, you shouldn't have to guess</div>"+
@@ -1067,8 +1176,14 @@ function confetti(){
 function enterDebrief(){
   if(Game.shipTimer) clearTimeout(Game.shipTimer);
   $("#cv-fx").style.display="none";
-  const perfect = Game.picks.length===3 && Game.picks.every((p,i)=>p===CONTENT.rounds[i].real);
-  $("#rs-verdictline").textContent = perfect ? CONTENT.debrief.perfect : CONTENT.debrief.good;
+  // outcome tier: how many of the three real winners shipped
+  const realCount = Game.picks.filter((p,i)=>p===CONTENT.rounds[i].real).length;
+  const tierKey = realCount===3 ? "gold" : realCount===2 ? "silver" : "bronze";
+  const tier = CONTENT.debrief.tiers[tierKey];
+  const perfect = tierKey==="gold";
+  $("#scr-debrief").dataset.tier = tierKey;
+  $("#rs-tier").textContent = tier.name;
+  $("#rs-verdictline").textContent = tier.line;
   // hero sprite (crown floats above the afro on a perfect run)
   const hero=$("#cv-hero"); hero.width=32; hero.height=40;
   const hg=hero.getContext("2d");
@@ -1084,7 +1199,11 @@ function enterDebrief(){
   CONTENT.rounds.forEach((R,i)=>{
     const o=R.options[Game.picks[i]];
     const d=document.createElement("div"); d.className="rs-round";
-    const h=document.createElement("h3"); h.textContent=R.tag.replace("/3"," OF 3")+" — "+(["THE RATE CARD","THE CTA","THE CONFIRMATION"][i]);
+    const h=document.createElement("h3");
+    // per-round mark: gold = real winner · half = right copy, other moment · dim = the data picked differently
+    const mk=document.createElement("span");
+    mk.className = "mk "+(Game.picks[i]===R.real ? "mk-gold" : o.q===2 ? "mk-half" : "mk-dim");
+    h.append(mk, R.tag.replace("/3"," OF 3")+" — "+(["THE RATE CARD","THE CTA","THE CONFIRMATION"][i]));
     const p1=document.createElement("div"); p1.className="pick"; p1.textContent=o.pickLabel;
     d.append(h,p1);
     const p2=document.createElement("div"); p2.className="why"; p2.textContent = R.realLine;
@@ -1100,6 +1219,8 @@ function enterDebrief(){
 
 /* ---------------- END CARD ---------------- */
 function enterEnd(){
+  $("#btn-home").href = CONTENT.end.homeHref;
+  $("#homechip").href = CONTENT.end.homeHref;
   const perfect = Game.picks.length===3 && Game.picks.every((p,i)=>p===CONTENT.rounds[i].real);
   const cv=$("#cv-end"); cv.width=24; cv.height=33;
   const g=cv.getContext("2d"); g.clearRect(0,0,24,33);
