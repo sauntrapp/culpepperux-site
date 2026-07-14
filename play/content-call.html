@@ -39,15 +39,24 @@ body{
     linear-gradient(var(--sky2) 2px, transparent 2px),
     linear-gradient(90deg, var(--sky2) 2px, transparent 2px);
   background-size:48px 48px;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
   font-family:var(--uifont);
   color:var(--ink);
   overflow:hidden;
 }
+/* persistent site link — OUTSIDE the game window, on every screen */
+#sitebar{
+  display:flex;align-items:center;justify-content:center;
+  width:min(100vw,430px);flex:0 0 auto;
+  padding:12px 0 calc(12px + env(safe-area-inset-bottom));
+  background:var(--ink);color:var(--white);
+  font-family:var(--pxfont);font-size:8px;letter-spacing:2px;text-decoration:none;
+}
+#sitebar:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
 #stage{
   position:relative;
   width:min(100vw,430px);
-  height:min(100dvh,820px);
+  height:min(calc(100dvh - 38px),820px);
   background:var(--wall);
   overflow:hidden;
   border-left:4px solid var(--ink);
@@ -178,6 +187,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 .opt.sel{background:#fff3cd;border-color:var(--gold2)}
 .opt.sel .cur{visibility:visible}
 .opt .key{font-family:var(--pxfont);font-size:7px;color:#8a80ad;display:block;margin-bottom:3px}
+.opt .key.armed{color:var(--gold2)}
 .opt b{font-weight:400}
 
 /* ---- DIALOG BOX — the classic blue-gradient rounded panel ---- */
@@ -195,8 +205,7 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 #dlg-next{position:absolute;right:12px;bottom:7px;color:var(--white);font-size:13px;background:none;border:0;cursor:pointer;font-family:var(--pxfont)}
 
 /* ---- RESULTS / DEBRIEF — FF-style results panel ---- */
-#scr-debrief{background:var(--panel);padding:46px 12px calc(12px + env(safe-area-inset-bottom));overflow-y:auto} /* top padding clears the home chip */
-@media (min-width:768px){ #scr-debrief{padding-top:16px} }
+#scr-debrief{background:var(--panel);padding:14px 12px 12px;overflow-y:auto}
 .rs-title{font-family:var(--pxfont);font-size:13px;color:var(--gold);text-align:center;margin:2px 0 4px;letter-spacing:1px}
 .rs-sub{font-family:var(--readfont);font-size:20px;color:var(--silver);text-align:center;margin-bottom:10px;line-height:1.1}
 #rs-hero{display:flex;justify-content:center;margin-bottom:8px}
@@ -228,17 +237,6 @@ h1.gametitle .the{color:var(--gold);display:block;font-size:.55em}
 .endbtn.gold{background:#7a5a10;border-color:var(--gold)}
 #honesty{font-family:var(--readfont);font-size:18px;color:var(--silver);max-width:36ch;line-height:1.15}
 
-/* ---- persistent home link (hidden during rounds to keep play chrome clean) ---- */
-#homechip{
-  position:absolute;top:8px;right:8px;z-index:80;
-  font-family:var(--pxfont);font-size:7px;letter-spacing:1px;color:var(--white);
-  background:var(--ink);border:2px solid var(--white);box-shadow:2px 2px 0 rgba(26,19,48,.45);
-  padding:7px 9px;text-decoration:none;line-height:1;
-}
-#homechip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-body[data-scr="scr-play"] #homechip{display:none}
-body[data-scr="scr-scene"] #homechip{display:none}
-
 /* ---- debrief outcome tiers — good / better / best, never negative ---- */
 #rs-tier{font-family:var(--pxfont);font-size:11px;text-align:center;margin:0 0 7px;letter-spacing:1px;line-height:1.6}
 #scr-debrief[data-tier="gold"]   #rs-tier{color:var(--gold)}
@@ -254,7 +252,8 @@ body[data-scr="scr-scene"] #homechip{display:none}
 
 /* ---- wide screens: the playthrough's split composition (phone left, options right) ---- */
 @media (min-width:768px) and (min-height:480px){
-  #stage{width:min(100vw,940px);height:min(100dvh,664px);border:4px solid var(--ink)}
+  #stage{width:min(100vw,940px);height:min(calc(100dvh - 38px),664px);border:4px solid var(--ink)}
+  #sitebar{width:min(100vw,940px)}
   #scr-title{flex-direction:row}
   #cv-title{width:54%;align-self:center}
   #title-panel{border-top:0;border-left:4px solid var(--ink)}
@@ -355,8 +354,6 @@ body[data-scr="scr-scene"] #homechip{display:none}
     <p id="honesty">All winning copy and results are from real, tested work at Care.com.</p>
   </section>
 
-  <a id="homechip" href="https://culpepperux.com">CULPEPPERUX.COM ↗</a>
-
   <div id="dialog" role="dialog" aria-live="polite">
     <div id="dlg-name"></div>
     <div id="dlg-row">
@@ -368,6 +365,7 @@ body[data-scr="scr-scene"] #homechip{display:none}
 
   <canvas id="cv-fx"></canvas>
 </div>
+<a id="sitebar" href="https://culpepperux.com">CULPEPPERUX.COM ↗</a>
 
 <script>
 "use strict";
@@ -1015,17 +1013,41 @@ function enterRound(){
     span.innerHTML = "<span class='key'>OPTION "+(i+1)+"</span><b></b>";
     span.querySelector("b").textContent = o.menu;
     b.append(fing,span);
-    b.addEventListener("pointerenter",()=>selectOpt(i,false));
+    b.addEventListener("pointerenter",e=>{ if(e.pointerType==="mouse") selectOpt(i,false); });
     b.addEventListener("focus",()=>selectOpt(i,false));
-    b.addEventListener("click",()=>{ selectOpt(i,false); confirmOpt(); });
+    /* TOUCH: hover doesn't exist, so tap 1 = select + live-preview, tap 2 on the
+       same option = confirm (with an explicit cue). Handled on pointerup because
+       mobile browsers eat the click on hover-reactive elements. */
+    b.addEventListener("pointerup",e=>{
+      if(e.pointerType==="mouse") return;
+      Game.lastTouch = performance.now();
+      if(Game.phase!=="choose") return;
+      if(Game.armed===i && Game.sel===i){ Game.armed=null; confirmOpt(); }
+      else{ selectOpt(i,false); Game.armed=i; armHint(); }
+    });
+    /* MOUSE: hover previews, one click confirms (guard skips the synthetic
+       click that follows a touch pointerup) */
+    b.addEventListener("click",()=>{
+      if(performance.now()-(Game.lastTouch||0) < 700) return;
+      selectOpt(i,false); confirmOpt();
+    });
     opts.append(b);
   });
+  Game.armed=null;
   renderMeter();
   selectOpt(0,true);
   lock(320);
 }
+function armHint(){
+  document.querySelectorAll(".opt").forEach((el,k)=>{
+    const key=el.querySelector(".key");
+    if(k===Game.armed){ key.textContent="TAP AGAIN TO SHIP IT ▶"; key.classList.add("armed"); }
+    else{ key.textContent="OPTION "+(k+1); key.classList.remove("armed"); }
+  });
+}
 function selectOpt(i, focusToo){
   Game.sel=i;
+  if(Game.armed!=null && Game.armed!==i){ Game.armed=null; armHint(); } // moving the cursor disarms the tap-confirm
   document.querySelectorAll(".opt").forEach((el,k)=>el.classList.toggle("sel",k===i));
   if(focusToo){ const el=document.querySelectorAll(".opt")[i]; if(el) el.focus({preventScroll:true}); }
   renderPreview(); // LIVE PREVIEW — the words change the product as the cursor moves
@@ -1220,7 +1242,7 @@ function enterDebrief(){
 /* ---------------- END CARD ---------------- */
 function enterEnd(){
   $("#btn-home").href = CONTENT.end.homeHref;
-  $("#homechip").href = CONTENT.end.homeHref;
+  $("#sitebar").href = CONTENT.end.homeHref;
   const perfect = Game.picks.length===3 && Game.picks.every((p,i)=>p===CONTENT.rounds[i].real);
   const cv=$("#cv-end"); cv.width=24; cv.height=33;
   const g=cv.getContext("2d"); g.clearRect(0,0,24,33);
