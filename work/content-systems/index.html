@@ -64,6 +64,15 @@
         <span style="font-size: 20px; color: var(--text-muted);">→</span>
       </a>
 
+      <a href="/work/content-systems/tone-modulation-framework" style="display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: baseline; padding: 26px 16px; margin: 0 -16px; border-bottom: var(--hairline); text-decoration: none; color: inherit; border-radius: var(--radius-sm); transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+        <span style="font-family: var(--font-mono); font-size: 15px; color: var(--text-muted);">02</span>
+        <span style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-size: 24px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-heading); color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ tmf }}</span>The Tone Modulation Framework</span>
+          <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">Modulating brand voice for product writing.</span>
+        </span>
+        <span style="font-size: 20px; color: var(--text-muted);">→</span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -100,7 +109,8 @@ class Component extends DCLogic {
     const v = this.state.visited;
     const check = (slug) => (v.indexOf(slug) !== -1 ? '✓ ' : '');
     return {
-      c2: check('/work/content-systems/care-internal-build')
+      c2: check('/work/content-systems/care-internal-build'),
+      tmf: check('/work/content-systems/tone-modulation-framework')
     };
   }
 }
