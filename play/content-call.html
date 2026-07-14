@@ -446,7 +446,7 @@ const CONTENT = {
           ],
           m:{"THE USER":"hmm",LEGAL:"hmm"},
           pickLabel:"You picked the warm-fuzzy header.",
-          why:"The real copy is warm too — “You're never alone” — but it earns that warmth with 90 concrete days of support. A headline that only soothes makes a stressed user work out what this even is."
+          why:"Warmth isn't the problem — the real landing page leads with “When it feels like too much. We're here for you.” But that's one screen later, after the user asked to hear more. Here, the job is naming the thing. Right warmth, wrong moment."
         }
       ],
       real:0,
@@ -1069,8 +1069,9 @@ function renderPreview(){
     c.querySelector(".ph-h").textContent = o.h;
     c.querySelectorAll(".bl span").forEach((el,k)=>el.textContent=R.bullets[k]);
   }else if(R.screen==="landing"){
+    // REAL-VERBATIM landing headline (Duval-supplied): empathy before selling
     c.innerHTML =
-      "<div class='ph-h'>When family needs help, you shouldn't have to guess</div>"+
+      "<div class='ph-h'>When it feels like too much. We're here for you.</div>"+
       "<div class='greek w80'></div><div class='greek'></div><div class='greek w60'></div>"+
       "<div class='greek w80'></div><div class='greek w60'></div>"+
       "<button class='ph-cta' tabindex='-1'></button>";
