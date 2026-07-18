@@ -1,3 +1,6 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/media", "destination": "/editorial", "permanent": true }
+  ]
 }
