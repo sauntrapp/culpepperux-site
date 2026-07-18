@@ -130,8 +130,8 @@
         <span style="display: block; margin-top: 24px; border-top: 1px solid var(--border-hairline); padding-top: 16px; min-height: 84px;">
           <span style="display: flex; flex-direction: column; gap: 6px; opacity: 0; transform: translateY(8px); opacity: {{ z4o }}; transform: {{ z4t }}; transition: {{ panelTransition }};">
             <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-accent);">FEATURED</span>
-            <span style="font-size: 17px; font-weight: 600; color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ check4 }}</span>A lab result, ready for review — closing the worry loop</span>
-            <span style="font-size: 15px; color: var(--text-accent);">1 study →</span>
+            <span style="font-size: 17px; font-weight: 600; color: var(--text-primary);"><span style="font-family: var(--font-mono); color: var(--text-accent);">{{ check4 }}</span>Pivoting from the athlete to the operator</span>
+            <span style="font-size: 15px; color: var(--text-accent);">2 studies →</span>
           </span>
         </span>
       </a>
@@ -316,7 +316,7 @@ class Component extends DCLogic {
       zEnter4: mkEnter(3),
       z4o: on(3) ? '1' : '0',
       z4t: on(3) ? 'translateY(0px)' : 'translateY(8px)',
-      check4: isVisited('/work/ai-product-design/atria') ? '✓ ' : '',
+      check4: isVisited('/work/ai-product-design/peloton') ? '✓ ' : '',
       zLeave: () => { if (this.state.hovered !== -1) this.setState({ hovered: -1 }); },
       z1o: on(0) ? '1' : '0',
       z2o: on(1) ? '1' : '0',
