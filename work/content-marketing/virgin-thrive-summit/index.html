@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/editorial" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">Editorial</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="cs-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+      <a href="/work/content-marketing/" style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-muted);">← CONTENT MARKETING</a>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="220px,20px">CASE STUDY — 02</x-import>
+    </div>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Virgin Pulse Thrive Summit 2019</h1>
+    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Turning a product roadmap into an action comedy — the opening film for Virgin Pulse's flagship summit, written for a cast of real executives.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; margin-top: 48px; max-width: 1000px;">
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">ROLE</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-primary);">Script Writer — with Shadow Lion, for Virgin Pulse</span>
+      </div>
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">BRIEF</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-primary);">Open Thrive Summit 2019 — Virgin Pulse's international gathering of HR and healthcare leaders — with a film that introduces the "Homebase for Health" platform, engages attendees, and holds up to reuse across sales and the web.</span>
+      </div>
+      <div>
+        <span style="display: block; font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">EXECUTION</span>
+        <span style="font-size: 15px; line-height: 1.5; color: var(--text-primary);">A 3–5 minute blockbuster-spoof shooting script, written and revised across three rounds with the agency, the production team, and Virgin Pulse's executives — February through April 2019.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s1-concept">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">01</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">From beat notes to screenplay</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">The concept arrived as a page of notes: a Star Wars opening crawl, a Mission: Impossible cold open, and one character for every product pillar, each played by a real Virgin Pulse employee. My job was to turn that sketch into a film — structure, dialogue, and jokes that could survive corporate review while still being jokes.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s2-characters">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">02</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Features as characters</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">The script's engine is a content design move: translating product architecture into people. Live coaching became Marin, chatting a member through diabetes management. Partner integrations became a NASCAR covered in partner logos. Analytics became Dr. Kumar, murmuring &ldquo;8 billion data points a month&rdquo; from a wingback chair. Every scene had to land verbatim product messaging inside a comic beat — the same discipline as UI copy, at 24 frames per second.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s3-room">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 0;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">03</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">Writing for the room and the budget</h2>
+      <p style="font-size: var(--text-body); line-height: var(--leading-body); color: var(--text-primary); margin: 24px 0 0; text-wrap: pretty;">The cast were actual executives playing themselves, so every line had to be deliverable by a non-actor and approved by the person saying it. My first question on the project was the audience question — this wasn't an internal gag reel; it was aimed at the HR leaders in the seats, with reuse planned for sales and web. Alongside three script revisions with Virgin Pulse's team, I worked with the creative leads and Virgin Pulse's Director of Design to rescale VFX set pieces to the production's real budget and constraints.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="s4-film">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 80px 32px 96px;">
+    <div style="max-width: var(--measure);">
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="60px,20px">04</x-import>
+      <h2 style="margin: 16px 0 0; font-size: var(--text-h2); font-weight: var(--weight-bold); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); color: var(--text-primary); text-wrap: balance;">The film</h2>
+    </div>
+    <figure style="margin: 48px 0 0; max-width: 860px;">
+      <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--border-hairline); border-radius: 4px; overflow: hidden; background: var(--surface-inset);">
+        <iframe src="https://www.youtube-nocookie.com/embed/5YsfqVeOwLI" title="Virgin Pulse Thrive Summit 2019 — opening film" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+      </div>
+      <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">VIRGIN PULSE THRIVE SUMMIT 2019 — OPENING FILM. WRITTEN BY DUVAL CULPEPPER; PRODUCED WITH SHADOW LION FOR VIRGIN PULSE.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/content-marketing/tb12" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;" style-hover="color: var(--text-primary)">← Tom Brady's TB12 Sports</a>
+    <a href="/work/content-marketing/" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;" style-hover="color: var(--accent-hover)">All Content Marketing →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>
