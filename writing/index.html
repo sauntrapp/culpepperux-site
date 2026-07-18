@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/base.css">
+  <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/styles.css">
+  <script src="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/_ds_bundle.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--surface-page); font-family: var(--font-sans); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+    ::selection { background: var(--navy-100); }
+  </style>
+</helmet>
+
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">Work</a>
+      <a href="/writing" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Writing</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" style="text-decoration: none;"><x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Button" size="sm" variant="secondary" hint-size="120px,36px">Get in touch</x-import></a>
+    </nav>
+  </div>
+</header>
+
+<section data-screen-label="writing-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
+    <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="200px,20px">SELECTED BYLINES</x-import>
+    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Journalism</h1>
+    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Culture, travel and media criticism from national publications.</p>
+  </div>
+</section>
+
+<section data-screen-label="writing-list">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 64px 32px 96px;">
+    <div style="border-top: 1px solid var(--border-hairline);">
+
+      <a href="https://www.insidehook.com/advice/how-to-be-a-lifeguard" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 132px 1fr auto; gap: 24px; align-items: center; padding: 22px 16px; margin: 0 -16px; border-bottom: 1px solid var(--border-hairline); text-decoration: none; color: inherit; border-radius: 4px; transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+        <img src="https://www.insidehook.com/wp-content/uploads/2019/03/Lifeguard_Heade_1469738208.jpg?fit=1200%2C630" alt="Lifeguard training in the surf" loading="lazy" style="display: block; width: 132px; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--border-hairline); border-radius: 4px;">
+        <span style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-muted);">INSIDEHOOK</span>
+          <span style="font-size: 19px; font-weight: 600; letter-spacing: var(--tracking-heading); color: var(--text-primary);">Life Lessons From Red Bull's Master Lifeguard Bruckner Chase</span>
+          <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">Ocean-rescue training with an elite lifeguard — and the safety lessons worth taking home.</span>
+        </span>
+        <span style="font-size: 18px; color: var(--text-muted);">↗</span>
+      </a>
+      <a href="https://www.insidehook.com/adventure/9-chicago-boats-for-any-occasion" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 132px 1fr auto; gap: 24px; align-items: center; padding: 22px 16px; margin: 0 -16px; border-bottom: 1px solid var(--border-hairline); text-decoration: none; color: inherit; border-radius: 4px; transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+        <img src="https://www.insidehook.com/wp-content/uploads/2023/10/IH-social-preview-fallback-v5.jpg?resize=1200,800" alt="InsideHook" loading="lazy" style="display: block; width: 132px; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--border-hairline); border-radius: 4px;">
+        <span style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-muted);">INSIDEHOOK</span>
+          <span style="font-size: 19px; font-weight: 600; letter-spacing: var(--tracking-heading); color: var(--text-primary);">These 9 Chicago Boat Rentals Will Cover Every Maritime Occasion</span>
+          <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">A service guide matching nine boat rentals to every kind of day on the water.</span>
+        </span>
+        <span style="font-size: 18px; color: var(--text-muted);">↗</span>
+      </a>
+      <a href="https://www.insidehook.com/chicago/four-hour-rule-ann-arbor-michigan" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 132px 1fr auto; gap: 24px; align-items: center; padding: 22px 16px; margin: 0 -16px; border-bottom: 1px solid var(--border-hairline); text-decoration: none; color: inherit; border-radius: 4px; transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+        <img src="https://www.insidehook.com/wp-content/uploads/2023/10/IH-social-preview-fallback-v5.jpg?resize=1200,800" alt="InsideHook" loading="lazy" style="display: block; width: 132px; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--border-hairline); border-radius: 4px;">
+        <span style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-muted);">INSIDEHOOK</span>
+          <span style="font-size: 19px; font-weight: 600; letter-spacing: var(--tracking-heading); color: var(--text-primary);">The Four-Hour Rule: Ann Arbor, MI</span>
+          <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">A tight weekend itinerary for Ann Arbor — where to stay, eat, and wander.</span>
+        </span>
+        <span style="font-size: 18px; color: var(--text-muted);">↗</span>
+      </a>
+      <a href="https://www.pastemagazine.com/tv/fear-the-walking-dead/3-times-fear-the-walking-dead-got-it-right-in-seas" target="_blank" rel="noopener" style="display: grid; grid-template-columns: 132px 1fr auto; gap: 24px; align-items: center; padding: 22px 16px; margin: 0 -16px; border-bottom: 1px solid var(--border-hairline); text-decoration: none; color: inherit; border-radius: 4px; transition: background 150ms ease-out;" style-hover="background: var(--surface-inset)">
+        <img src="https://image-pastemagazine-com-public-bucket.storage.googleapis.com/wp-content/uploads/2022/06/19172616/FTWD_List_Main.jpg" alt="Still from Fear the Walking Dead season three" loading="lazy" style="display: block; width: 132px; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid var(--border-hairline); border-radius: 4px;">
+        <span style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-mono); text-transform: uppercase; color: var(--text-muted);">PASTE</span>
+          <span style="font-size: 19px; font-weight: 600; letter-spacing: var(--tracking-heading); color: var(--text-primary);">3 Times Fear the Walking Dead Got It Right in Season Three</span>
+          <span style="font-size: 15px; line-height: 1.5; color: var(--text-secondary);">Criticism: three moments where the zombie spin-off finally delivered on its premise.</span>
+        </span>
+        <span style="font-size: 18px; color: var(--text-muted);">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>
