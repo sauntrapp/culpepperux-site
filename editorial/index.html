@@ -41,10 +41,16 @@
 </header>
 
 <section data-screen-label="editorial-hero" style="border-bottom: var(--hairline); background: var(--surface-card);">
-  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px;">
-    <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="200px,20px">SELECTED BYLINES</x-import>
-    <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Editorial</h1>
-    <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Culture, travel and media criticism from national publications.</p>
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 88px 32px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 64px; align-items: center;">
+    <div>
+      <x-import component-from-global-scope="CulpepperUXDesignSystem_774f5e.Eyebrow" hint-size="200px,20px">SELECTED BYLINES</x-import>
+      <h1 style="margin: 28px 0 0; font-size: var(--text-display); font-weight: var(--weight-display); line-height: var(--leading-display); letter-spacing: var(--tracking-display); color: var(--text-primary); max-width: 900px; text-wrap: balance;">Editorial</h1>
+      <p style="font-size: var(--text-body-lg); line-height: 1.55; color: var(--text-secondary); max-width: var(--measure); margin: 28px 0 0; text-wrap: pretty;">Culture, travel and media criticism from national publications.</p>
+    </div>
+    <figure style="margin: 0; max-width: 560px; justify-self: end; width: 100%;">
+      <img src="/assets/editorial-lifeguard-onassignment.jpg" alt="Duval Culpepper paddling a rescue board through surf during Red Bull lifeguard training" style="display: block; width: 100%; height: auto; border: 1px solid var(--border-hairline); border-radius: var(--radius-sm);">
+      <figcaption style="font-family: var(--font-mono); font-size: var(--text-mono-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px;">ON ASSIGNMENT — RED BULL SURF RESCUE TRAINING, INSIDEHOOK. PHOTO: JOSH SUHAR</figcaption>
+    </figure>
   </div>
 </section>
 
