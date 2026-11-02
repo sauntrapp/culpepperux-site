@@ -292,10 +292,10 @@ td:first-child{font-weight:600;width:30%}
 <!-- 03 -->
 <section class="s" id="audit">
   <div class="s-head">
-    <span class="num">03 — Implementation audit · July 3</span>
+    <span class="num">03 — How it worked</span>
     <div>
-      <h2>It worked. It also wasn't the version we'd locked.</h2>
-      <p>On venues nobody curated, the engine produced exactly the close-friend register, such as a bar where one bartender cooks and serves, with a specific sleeper menu item and its price. The code audit also found that production was running an earlier prompt.</p>
+      <h2>It worked, on venues nobody had curated.</h2>
+      <p>The engine produced exactly the close-friend register, such as a bar where one bartender cooks and serves, with a specific sleeper menu item and its price.</p>
     </div>
   </div>
   <div class="body">
@@ -308,12 +308,6 @@ td:first-child{font-weight:600;width:30%}
       <div class="node"><span class="k">5 · Output</span><h4>samuelSauntrSays</h4><p>Cached and returned to the client.</p></div>
     </div>
 
-    <span class="mono" style="display:block;margin:24px 0 14px">Locked spec vs. deployed code</span>
-    <div class="diff">
-      <div class="plus"><h4>Tracker: marked complete</h4><ul><li>Close-friend prompt (May 28)</li><li>Explicit NONE instruction</li><li>Batch-size change</li><li>Fallback behavior</li></ul></div>
-      <div class="minus"><h4>Production: actually running</h4><ul><li>Earlier prompt: "as if a well-traveled local is telling a friend"</li><li>140 characters or fewer</li><li>No instruction to decline</li><li>Batch size and fallback not shipped</li></ul></div>
-    </div>
-    <p class="callout">Process change: no sprint item closes without per-field verification against the code. "Marked complete" and "wired" are different states.</p>
   </div>
 </section>
 
@@ -538,7 +532,7 @@ td:first-child{font-weight:600;width:30%}
   var states = {
     beta: {
       says: true, desc: false, flagged: true,
-      html: '<span class="pill red">Shipped in closed beta</span><h4>Published as Samuel\'s own claim.</h4><p>The deployed prompt had no instruction to decline, and the generic-phrase validator had nothing to say about a specific, punctuated, well-formed accusation. It passed every check that existed.</p>' +
+      html: '<span class="pill red">Shipped in closed beta</span><h4>Published as Samuel\'s own claim.</h4><p>Nothing in the pipeline was built to catch this. The decline path only handled reviews that weren\'t specific enough, and the generic-phrase validator had nothing to say about a specific, punctuated, well-formed accusation. It passed every check that existed.</p>' +
         '<ul class="checks"><li><b class="pass">PASS</b>Length within range</li><li><b class="pass">PASS</b>Ends with punctuation</li><li><b class="pass">PASS</b>No generic phrases</li><li><b class="block">MISSING</b>Negative factual claim check</li></ul>'
     },
     spec: {
