@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Flavor Engine · Culpepper UX</title>
+<meta name="description" content="Designing, stress-testing and retiring a generative feature in Sauntr, and the behavior contract that replaced it.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
+<link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
+<link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/typography.css">
+<link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/spacing.css">
+<link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/borders.css">
+<style>
+/* Frame: Duval Systems. Sauntr deliverables: Postcard UI. */
+:root{
+  color-scheme:light;
+  --bg:#ffffff; --ink:#111214; --ink-2:#55585f; --ink-3:#8c8f96; --rule:#dcdcd6; --accent:#10203A; --wash:#f6f6f3;
+  --display:"Schibsted Grotesk",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  /* Sauntr Postcard */
+  --pc-paper:#faf8f4; --pc-sand:#f2ede4; --pc-ink:#1a1814; --pc-ink-2:#3d3b36; --pc-ink-3:#6b665a; --pc-rule:#ddd8cf; --pc-green:#2c4a3e;
+  --serif:"DM Serif Display",Georgia,serif; --sans:"DM Sans",system-ui,sans-serif;
+  --flag:#b3261e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:var(--accent)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.brand{font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand span{color:var(--ink-3);font-weight:500}
+
+/* Hero */
+.hero{padding-block:clamp(48px,9vh,104px) clamp(36px,6vh,64px)}
+.hero h1{font-size:clamp(38px,6.4vw,84px);font-weight:700;line-height:1.03;letter-spacing:-.035em;margin:18px 0 0;text-wrap:balance}
+.hero h1 .gt{color:var(--ink-3);font-weight:500;margin-right:.15em}
+.hero .lede{font-size:clamp(18px,2vw,22px);line-height:1.5;color:var(--ink-2);max-width:60ch;margin:26px 0 0;text-wrap:pretty}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:44px;border-top:1.5px solid var(--ink)}
+.meta div{padding:14px 18px 14px 0;border-bottom:1px solid var(--rule)}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.meta dd{margin:6px 0 0;font-size:15px;line-height:1.45}
+
+/* Sections */
+section.s{padding-block:clamp(48px,8vh,88px);border-top:1.5px solid var(--ink)}
+.s-head{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:24px 48px;align-items:start}
+@media (max-width:820px){.s-head{grid-template-columns:1fr}}
+.s-head .num{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.s-head h2{margin:0;font-size:clamp(28px,3.6vw,46px);font-weight:700;line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+.s-head p{margin:16px 0 0;font-size:18px;line-height:1.55;color:var(--ink-2);max-width:62ch;text-wrap:pretty}
+.body{margin-top:clamp(28px,5vh,48px)}
+.callout{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:28px 0 0;font-size:19px;line-height:1.45;font-weight:600;max-width:62ch}
+
+/* Postcard (Sauntr) */
+.pc-stage{background:var(--pc-sand);border:1px solid var(--pc-rule);padding:clamp(24px,4vw,48px);display:flex;flex-wrap:wrap;gap:32px;justify-content:center;align-items:flex-start}
+.pc{position:relative;width:100%;max-width:380px;background:#fff;border:1px solid var(--pc-rule);border-radius:6px;padding:26px 24px 24px;font-family:var(--sans);color:var(--pc-ink);box-shadow:0 1px 0 rgba(26,24,20,.04),0 10px 24px -14px rgba(26,24,20,.25)}
+.pc::before{content:"";position:absolute;inset:7px;border:1px solid var(--pc-rule);border-radius:3px;pointer-events:none}
+.pc.tilt-r{transform:rotate(1.2deg)} .pc.tilt-l{transform:rotate(-1deg)}
+@media (prefers-reduced-motion:reduce){.pc.tilt-r,.pc.tilt-l{transform:none}}
+.pc .stamp{position:absolute;top:20px;right:20px;width:58px;height:58px;border:2px solid var(--pc-green);outline:1px solid var(--pc-green);outline-offset:3px;border-radius:4px;transform:rotate(7deg);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--pc-green);font-family:var(--serif);line-height:1;text-align:center}
+.pc .stamp b{font-weight:400;font-size:9px;letter-spacing:.14em}
+.pc .stamp i{font-style:normal;font-size:12px;margin-top:3px}
+.pc .from{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--pc-ink-3)}
+.pc .vname{margin:8px 76px 0 0;font-family:var(--serif);font-size:27px;line-height:1.1}
+.pc .vname .redact{display:inline-block;background:var(--pc-ink);color:transparent;border-radius:2px;width:5.2em;height:.82em;vertical-align:-.06em;user-select:none}
+.pc .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pc .tags span{font-size:12px;font-weight:500;color:var(--pc-ink-2);border:1px solid var(--pc-rule);border-radius:999px;padding:3px 10px;background:var(--pc-paper)}
+.pc .desc{margin:16px 0 0;font-size:14.5px;line-height:1.55;color:var(--pc-ink-2)}
+.pc .attr{display:block;margin-top:6px;font-size:11.5px;color:var(--pc-ink-3)}
+.pc .says{margin-top:16px;border-top:1px solid var(--pc-rule);padding-top:14px;display:flex;gap:12px;align-items:flex-start}
+.pc .says .av{width:36px;height:36px;flex:none;border-radius:50%;background:var(--pc-sand);border:1px solid var(--pc-rule);object-fit:cover;display:block}
+.pc .mascot{position:absolute;right:14px;bottom:-22px;width:92px;height:auto;filter:drop-shadow(0 8px 12px rgba(26,24,20,.16));pointer-events:none}
+.pc.has-mascot{padding-bottom:64px}
+.principle-row{display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-top:28px}
+.principle-row img{width:110px;height:auto;flex:none}
+.principle-row .principle{margin-top:0}
+.pc .says small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pc-green);margin-bottom:5px}
+.pc .says p{margin:0;font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.35}
+.pc .says.flagged p{text-decoration:underline wavy var(--flag);text-decoration-thickness:1.5px;text-underline-offset:5px}
+.pc .lines{display:flex;flex-direction:column;gap:8px;margin-top:18px;width:46%}
+.pc .lines span{height:1px;background:var(--pc-rule)}
+.pc-cap{max-width:380px;width:100%}
+.pc-cap .mono{display:block;margin-bottom:10px}
+.pc-cap .note{font-size:14px;line-height:1.5;color:var(--ink-2);margin:12px 4px 0}
+
+/* Prompt / code */
+.prompt-card{border:1.5px solid var(--ink);padding:24px 26px;background:#fff}
+.prompt-card blockquote{margin:12px 0 0;font-size:clamp(19px,2.1vw,24px);line-height:1.4;font-weight:600;letter-spacing:-.01em}
+.prompt-card blockquote mark{background:none;color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;margin-top:22px;border-top:1px solid var(--rule)}
+.rules div{padding:14px 18px 14px 0;border-bottom:1px solid var(--rule);font-size:15px;line-height:1.45}
+.rules b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+
+/* Flow diagrams */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin-top:8px}
+.node{flex:1 1 160px;min-width:150px;border:1.5px solid var(--ink);padding:16px;background:#fff;position:relative;margin:0 22px 22px 0}
+.node:not(:last-child)::after{content:"→";position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:var(--mono);color:var(--ink-3);font-size:14px}
+.node .k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.node h4{margin:6px 0 0;font-size:17px;line-height:1.2;letter-spacing:-.01em;overflow-wrap:anywhere}
+.node p{margin:8px 0 0;font-size:14px;line-height:1.45;color:var(--ink-2)}
+.node.det{border-color:var(--accent)}
+.node.det .k{color:var(--accent)}
+.node.model{background:var(--wash)}
+.node .exit{display:block;margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--ink-2);border-top:1px dashed var(--rule);padding-top:8px}
+
+/* Diff */
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink)}
+@media (max-width:760px){.diff{grid-template-columns:1fr}}
+.diff > div{padding:20px 22px}
+.diff > div + div{border-left:1.5px solid var(--ink)}
+@media (max-width:760px){.diff > div + div{border-left:0;border-top:1.5px solid var(--ink)}}
+.diff h4{margin:0;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.diff ul{margin:14px 0 0;padding:0;list-style:none;font-family:var(--mono);font-size:13px;line-height:1.6}
+.diff li{padding:3px 0}
+.diff .plus li::before{content:"+ ";color:var(--accent)}
+.diff .minus li::before{content:"− ";color:var(--flag)}
+.diff .minus h4{color:var(--flag)}
+.diff .plus h4{color:var(--accent)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+th{text-align:left;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:10px 16px 10px 0;border-bottom:1.5px solid var(--ink)}
+td{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td:first-child{font-weight:600;width:30%}
+.tbl{overflow-x:auto}
+
+/* Toggle */
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.seg button{font:inherit;font-size:15px;font-weight:500;color:var(--ink);background:#fff;border:1.5px solid var(--rule);padding:10px 14px;border-radius:2px;cursor:pointer}
+.seg button:hover{border-color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.state-note{max-width:380px;width:100%}
+.state-note h4{margin:8px 0 0;font-size:22px;letter-spacing:-.015em;line-height:1.2}
+.state-note p{margin:10px 0 0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border:1.5px solid currentColor;border-radius:2px}
+.pill.red{color:var(--flag)} .pill.blue{color:var(--accent)} .pill.ink{color:var(--ink)}
+.checks{list-style:none;padding:0;margin:14px 0 0;font-family:var(--mono);font-size:12.5px;line-height:1.5}
+.checks li{padding:7px 0;border-bottom:1px solid var(--rule);display:flex;gap:10px}
+.checks li b{font-weight:500;min-width:52px}
+.checks .block{color:var(--flag)} .checks .pass{color:var(--accent)}
+
+/* Layers */
+.layers{display:grid;gap:0;border:1.5px solid var(--ink);position:relative}
+.layer{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:16px 32px;padding:22px 24px}
+.layer + .layer{border-top:1px solid var(--rule)}
+@media (max-width:760px){.layer{grid-template-columns:1fr}}
+.layer h4{margin:6px 0 0;font-size:19px;letter-spacing:-.01em}
+.layer ol,.layer ul{margin:0;padding-left:20px;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.layer li{margin:0 0 8px}
+.layer li b{color:var(--ink)}
+.unshipped{position:absolute;top:-14px;right:18px;background:#fff;padding:2px 8px}
+
+/* Job swap */
+.swap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+@media (max-width:760px){.swap{grid-template-columns:1fr}.swap .arrow{transform:rotate(90deg);justify-self:center}}
+.swap .card{border:1.5px solid var(--rule);padding:22px}
+.swap .card.after{border-color:var(--ink)}
+.swap .card p{margin:10px 0 0;font-size:clamp(20px,2.4vw,28px);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.swap .card.before p{color:var(--ink-3);text-decoration:line-through;text-decoration-thickness:2px}
+.swap .arrow{font-family:var(--mono);font-size:22px;color:var(--accent)}
+.principle{margin-top:28px;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,34px);line-height:1.25;max-width:30ch;color:var(--pc-ink)}
+
+/* Ladder */
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.rung{position:relative;background:#fff;border:1px solid var(--pc-rule);border-radius:6px;padding:20px 18px;font-family:var(--sans);color:var(--pc-ink)}
+.rung::before{content:"";position:absolute;inset:6px;border:1px solid var(--pc-rule);border-radius:3px;pointer-events:none}
+.rung .lvl{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pc-green)}
+.rung h4{margin:6px 0 0;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1}
+.rung .ev{margin-top:6px;font-size:13px;color:var(--pc-ink-3)}
+.rung dl{margin:14px 0 0;font-size:14px;line-height:1.45}
+.rung dt{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pc-ink-3);margin-top:10px}
+.rung dd{margin:4px 0 0;color:var(--pc-ink-2)}
+.rung dd.no{text-decoration:none;color:var(--flag)}
+.meter{display:flex;gap:3px;margin-top:12px}
+.meter span{height:4px;flex:1;background:var(--pc-rule);border-radius:2px}
+.meter span.on{background:var(--pc-green)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1.5px solid var(--ink)}
+.stat{padding:20px 20px 20px 0;border-bottom:1px solid var(--rule)}
+.stat .n{font-size:clamp(40px,5vw,60px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.stat p{margin:10px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2);max-width:32ch}
+
+.bound{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
+.bound div{border:1.5px solid var(--accent);padding:16px}
+.bound b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.bound p{margin:8px 0 0;font-size:15px;line-height:1.45}
+
+.closing{font-size:clamp(20px,2.3vw,26px);line-height:1.45;font-weight:500;letter-spacing:-.01em;max-width:52ch;text-wrap:pretty}
+.site-nav-btn{font-family:var(--font-sans);font-weight:600;font-size:14px;padding:7px 14px;border-radius:var(--radius-sm);border:var(--hairline-strong);color:var(--text-primary);text-decoration:none;display:inline-flex;align-items:center;line-height:1}
+.site-nav-btn:hover{border-color:var(--ink)}
+@media (max-width:640px){.site-nav{gap:18px!important}.site-nav .hide-sm{display:none}}
+.fine{font-size:13px;color:var(--ink-3);margin-top:16px;line-height:1.5}
+</style>
+</head>
+<body>
+<header data-screen-label="nav" style="border-bottom: var(--hairline); background: var(--surface-page);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 7px; text-decoration: none;">
+      <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <nav class="site-nav" style="display: flex; align-items: center; gap: 32px;">
+      <a href="/work" style="font-size: 15px; font-weight: 600; text-decoration: none; color: var(--text-primary);">Work</a>
+      <a href="/editorial" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">Editorial</a>
+      <a href="/about" style="font-size: 15px; text-decoration: none; color: var(--text-secondary);">About</a>
+      <a href="/contact" class="site-nav-btn">Get in touch</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+
+<section class="hero" id="top">
+  <a href="/work/content-systems/" class="mono" style="text-decoration:none;display:inline-block;margin-bottom:14px">← Content Systems</a><br>
+  <span class="mono">Generative feature · Agent behavior · Risk</span>
+  <h1><span class="gt">&gt;</span>The Flavor Engine: designing, stress-testing and retiring a generative feature.</h1>
+  <p class="lede">A generative feature that worked well produced one output that could have created legal exposure. I designed layered mitigations, then recognized that the mechanism itself couldn't be made safe, and rebuilt the agent's job around what it could truthfully say.</p>
+  <dl class="meta">
+    <div><dt>Product</dt><dd>Sauntr, a swipe-based local venue discovery app (iOS)</dd></div>
+    <div><dt>Role</dt><dd>Founder; product and content design lead. Wrote the specs, prompts and behavior contracts. An engineer implemented them.</dd></div>
+    <div><dt>Stack</dt><dd>Next.js + Capacitor, Supabase, Google Places API, Anthropic API</dd></div>
+    <div><dt>Timeline</dt><dd>April–October 2026</dd></div>
+  </dl>
+</section>
+
+<!-- 01 -->
+<section class="s" id="idea">
+  <div class="s-head">
+    <span class="num">01 — The idea</span>
+    <div>
+      <h2>The best thing about a bar is rarely the thing everyone agrees on.</h2>
+      <p>I was testing Sauntr in Savannah when I hit a review that mentioned a themed cookout the regulars run upstairs, a TV-show in-joke. One line, and I knew more about the place than its 4.5 stars or the platform's summary could tell me. That became the feature: Samuel finds the one detail a friend would mention and puts it on the card as <strong>"Samuel Sauntr Says."</strong></p>
+    </div>
+  </div>
+  <div class="body pc-stage">
+    <div class="pc-cap">
+      <span class="mono">What the platform summary says</span>
+      <article class="pc tilt-l" aria-label="Venue card with platform summary">
+        <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
+        <span class="from">Greetings from</span>
+        <p class="vname">A bar in Savannah</p>
+        <div class="tags"><span>Live music</span><span>Pool</span><span>Late night</span></div>
+        <p class="desc">"Popular bar with live music, pool tables, and good drinks."<span class="attr">Platform AI summary · 4.5★</span></p>
+        <div class="lines" aria-hidden="true"><span></span><span style="width:76%"></span><span style="width:88%"></span></div>
+      </article>
+      <p class="note">Accurate, and interchangeable with a thousand other bars.</p>
+    </div>
+    <div class="pc-cap">
+      <span class="mono">What a friend would tell you</span>
+      <article class="pc tilt-r" aria-label="Venue card with Samuel Sauntr Says line">
+        <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
+        <span class="from">Greetings from</span>
+        <p class="vname">A bar in Savannah</p>
+        <div class="tags"><span>Live music</span><span>Pool</span><span>Late night</span></div>
+        <div class="says"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"The kind of place that hosts a Trailer Park Boys cheeseburger picnic upstairs and nobody bats an eye."</p></div></div>
+      </article>
+      <p class="note">The thesis: platforms read a thousand reviews and tell you what everyone thinks. Sauntr reads them and finds the one thing worth knowing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="s" id="prompt">
+  <div class="s-head">
+    <span class="num">02 — The prompt and its contract</span>
+    <div>
+      <h2>The agent was allowed, and expected, to decline.</h2>
+      <p>Planned in the April 26 sprint plan as one sentence per venue card, and locked on May 28. One Claude call per venue on first load, cached in Supabase, so cost grows with venues rather than users.</p>
+    </div>
+  </div>
+  <div class="body">
+    <div class="prompt-card">
+      <span class="mono">Locked prompt · May 28, 2026</span>
+      <blockquote>"Analyze the reviews and summarize them into one or two sentences that would make a person feel like they got a special insight from a close friend about the venue. <mark>If the reviews don't contain enough specific or unexpected detail to write a meaningful insight, respond with only the word NONE.</mark>"</blockquote>
+      <div class="rules">
+        <div><b>Rule 1</b>Use the prompt exactly as written. It was tuned for the "close friend" register.</div>
+        <div><b>Rule 2</b><code>max_tokens: 200</code></div>
+        <div><b>Rule 3</b>When the model returns NONE, hide Samuel entirely. No filler like "a local favorite."</div>
+      </div>
+    </div>
+    <p class="callout">Blank is better than generic. The NONE path was a design decision from the start, not a fallback added later.</p>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="s" id="audit">
+  <div class="s-head">
+    <span class="num">03 — Implementation audit · July 3</span>
+    <div>
+      <h2>It worked. It also wasn't the version we'd locked.</h2>
+      <p>On venues nobody curated, the engine produced exactly the close-friend register, such as a bar where one bartender cooks and serves, with a specific sleeper menu item and its price. The code audit also found that production was running an earlier prompt.</p>
+    </div>
+  </div>
+  <div class="body">
+    <span class="mono" style="display:block;margin-bottom:14px">Pipeline as built</span>
+    <div class="flow">
+      <div class="node"><span class="k">1 · Input</span><h4>Review text</h4><p>Arrives with the Places API (New) response.</p></div>
+      <div class="node det"><span class="k">2 · Cache</span><h4>Check cache</h4><p>Keyed by place_id, 30-day TTL.</p></div>
+      <div class="node model"><span class="k">3 · Model</span><h4>Claude Sonnet</h4><p>Called on a cache miss with the review text.</p></div>
+      <div class="node det"><span class="k">4 · Validator</span><h4>isSpecificReviewInsight()</h4><p>Rejects too short or long, no end punctuation, or generic phrases ("great atmosphere").</p></div>
+      <div class="node"><span class="k">5 · Output</span><h4>samuelSauntrSays</h4><p>Cached and returned to the client.</p></div>
+    </div>
+
+    <span class="mono" style="display:block;margin:24px 0 14px">Locked spec vs. deployed code</span>
+    <div class="diff">
+      <div class="plus"><h4>Tracker: marked complete</h4><ul><li>Close-friend prompt (May 28)</li><li>Explicit NONE instruction</li><li>Batch-size change</li><li>Fallback behavior</li></ul></div>
+      <div class="minus"><h4>Production: actually running</h4><ul><li>Earlier prompt: "as if a well-traveled local is telling a friend"</li><li>140 characters or fewer</li><li>No instruction to decline</li><li>Batch size and fallback not shipped</li></ul></div>
+    </div>
+    <p class="callout">Process change: no sprint item closes without per-field verification against the code. "Marked complete" and "wired" are different states.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="s" id="incident">
+  <div class="s-head">
+    <span class="num">04 — The incident · closed beta</span>
+    <div>
+      <h2>Then Samuel accused a real bar of mistreating its customers.</h2>
+      <p>The line was specific, and it sounded like the close friend I'd asked for. It was also exactly the wrong kind of specific: a factual claim about how a real business treats people, in Samuel's voice. I've left the venue's name off, because putting the claim next to it would just publish it again. The toggle shows the card as it ran, how the fix I designed would have caught it, and what the card does now.</p>
+    </div>
+  </div>
+  <div class="body">
+    <div class="seg" role="group" aria-label="Card state">
+      <button type="button" data-state="beta" aria-pressed="true">Closed beta</button>
+      <button type="button" data-state="spec" aria-pressed="false">Mitigation spec</button>
+      <button type="button" data-state="after" aria-pressed="false">After retirement</button>
+    </div>
+    <div class="pc-stage">
+      <div class="pc-cap">
+        <article class="pc" aria-live="polite">
+          <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
+          <span class="from">Greetings from</span>
+          <p class="vname"><span class="redact" aria-label="Venue name withheld"></span></p>
+          <div class="tags"><span>Bar</span><span>Dancing</span><span>Late night</span></div>
+          <p class="desc" id="ic-desc" hidden>[The provider's own editorial summary, shown verbatim]<span class="attr">Summary from the data provider</span></p>
+          <div class="says flagged" id="ic-says"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"Multiple people have reported being confronted or insulted by staff for innocuous behavior like solo dancing."</p></div></div>
+          <div class="lines" aria-hidden="true"><span></span><span style="width:76%"></span><span style="width:88%"></span></div>
+        </article>
+      </div>
+      <div class="state-note" id="ic-note"></div>
+    </div>
+
+    <span class="mono" style="display:block;margin:36px 0 14px">Why this was the dangerous kind of output</span>
+    <div class="tbl"><table>
+      <thead><tr><th>Factor</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Specific factual assertion</td><td>Not opinion. It alleges a pattern of staff mistreating patrons.</td></tr>
+        <tr><td>Named private business</td><td>A local venue is a private figure, so the bar for a claim is negligence, not actual malice.</td></tr>
+        <tr><td>Generated, not quoted</td><td>The engine wrote new prose. "Multiple people" may not have been in the source. Invented quantifiers turn a summary into fabrication.</td></tr>
+        <tr><td>Republication</td><td>Repeating a reviewer's defamatory claim is itself publication.</td></tr>
+        <tr><td>Section 230</td><td>Likely doesn't shield AI-generated output. The app is closer to publisher than neutral host.</td></tr>
+        <tr><td>Branded voice</td><td>"Samuel says" presents the claim as the company's own statement.</td></tr>
+        <tr><td>The prompt pulled toward it</td><td>"Find the unexpected detail" rewards outliers, and negative outliers are often the most specific thing in a set of reviews.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="fine">Risk analysis, not legal advice. Specifics were flagged for counsel.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="s" id="mitigation">
+  <div class="s-head">
+    <span class="num">05 — Mitigation design</span>
+    <div>
+      <h2>Defense in depth, so no single layer has to be perfect.</h2>
+      <p>"Always stay positive" isn't enough: a false positive fact ("staff know every regular by name") is just as unverifiable. The rules separate impression from assertion, and make silence the safe answer.</p>
+    </div>
+  </div>
+  <div class="body">
+    <div class="layers">
+      <span class="pill red unshipped">Specced · never shipped</span>
+      <div class="layer">
+        <div><span class="mono">Layer 1</span><h4>Generation prompt constraints</h4></div>
+        <ol>
+          <li><b>Negative-claim exclusions.</b> No allegations of staff misconduct, mistreatment, discrimination, safety, health, cleanliness or illegality; no negative factual claims about identifiable people.</li>
+          <li><b>Opinion, not fact.</b> Insights stay in impression language ("has the feel of a place where regulars linger").</li>
+          <li><b>NONE as a safety control,</b> not just a quality control. When in doubt, the agent says nothing.</li>
+          <li><b>Ground truth.</b> Every claim supported by the source reviews; no made-up quantifiers ("multiple people," "many say").</li>
+        </ol>
+      </div>
+      <div class="layer">
+        <div><span class="mono">Layer 2</span><h4>Independent screening agent</h4></div>
+        <ul>
+          <li>A separate, cheaper model (Haiku) with one narrow job: <b>does this assert a negative factual claim about staff, conduct, safety, health or legality? PASS or BLOCK.</b> A narrow classification is far more reliable than asking a creative generator to police itself.</li>
+          <li><b>Fail closed.</b> On BLOCK, return NONE. Never auto-rewrite: a rewrite adds cost and can introduce new errors.</li>
+          <li><b>Placed before the cache write,</b> so the cache only ever holds vetted output. Runs once per venue on a miss: fractions of a cent, no added delay on cached venues.</li>
+        </ul>
+      </div>
+      <div class="layer">
+        <div><span class="mono">Layer 3</span><h4>Operations</h4></div>
+        <ul>
+          <li>A notice-and-takedown path so venues can flag and remove a summary.</li>
+          <li>Media/tech E&amp;O insurance before scaling users.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="callout">These were specced and added to the sprint tracker. They never shipped, because the next finding retired the feature first.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="s" id="decision">
+  <div class="s-head">
+    <span class="num">06 — The decision</span>
+    <div>
+      <h2>It was working. I retired it anyway.</h2>
+      <p>While I was speccing the fix, I found the bigger problem: the feature's whole mechanic was the thing it wasn't allowed to do. The data provider's terms don't allow new content built from its reviews, and that's all the feature did. Switching review sources wouldn't have touched the defamation risk either, because that comes from writing claims about businesses at all. So I didn't patch it. I gave Samuel a different job.</p>
+    </div>
+  </div>
+  <div class="body">
+    <div class="flow" style="margin-bottom:28px">
+      <div class="node"><span class="k">Why not patch it</span><h4>The mechanic was the violation</h4><p>Breaking the provider's terms risked losing API access, which would break the whole app. Another major review API explicitly bans feeding its content into generative AI.</p></div>
+      <div class="node"><span class="k">Descriptions</span><h4>Provider summary, verbatim</h4><p>The provider's own editorialSummary, with attribution, untouched by the model.</p></div>
+      <div class="node"><span class="k">Cache</span><h4>Purged, not orphaned</h4><p>Cached derivative content actively deleted.</p></div>
+      <div class="node det"><span class="k">Samuel</span><h4>A new job</h4><p>Claims about the user's own patterns, which he can verify.</p></div>
+    </div>
+    <div class="swap">
+      <div class="card before"><span class="mono">Samuel's job, before</span><p>What reviewers say about this place.</p></div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="card after"><span class="mono">Samuel's job, after</span><p>What your behavior says about your taste.</p></div>
+    </div>
+    <div class="principle-row"><img src="/work/content-systems/flavor-engine/img/samuel.png" alt="Samuel Sauntr"><p class="principle">"The provider identifies the place; the user teaches the app what it means to them."</p></div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="s" id="contract">
+  <div class="s-head">
+    <span class="num">07 — What replaced it</span>
+    <div>
+      <h2>A behavior contract enforced in code, not by convention.</h2>
+      <p>Three successive artifacts. The <strong>Voice Spec v1.0</strong> (May): "a sommelier, not a salesperson," two sentences max, no questions or calls to action, and the Seen Test on every line. <strong>Samuel Says v1</strong> (October): the contract written as a subagent. <strong>Content Framework v2</strong> (October): surfaces, signals and a claims ladder.</p>
+    </div>
+  </div>
+  <div class="body">
+    <span class="mono" style="display:block;margin-bottom:14px">Samuel Says v1 · observation subagent</span>
+    <div class="flow">
+      <div class="node det"><span class="k">Deterministic</span><h4>Facts</h4><p>The user's own swipe data becomes up to seven pre-worded facts. All arithmetic happens in code.</p></div>
+      <div class="node det"><span class="k">Deterministic</span><h4>Gate</h4><p>Thin data, weak facts, repeats, disabled surfaces.</p><span class="exit">→ most silences happen here, before any model call</span></div>
+      <div class="node model"><span class="k">Model · Haiku</span><h4>Pick and phrase</h4><p>Chooses one fact and words it in Samuel's voice, or chooses silence.</p></div>
+      <div class="node det"><span class="k">Deterministic</span><h4>Validator</h4><p>Enforces voice and grounding.</p><span class="exit">→ any failure = silence + fallback copy, no retry or repair</span></div>
+    </div>
+
+    <div class="bound">
+      <div><b>Boundary 1 · Types</b><p>The type system has no field that can hold provider content.</p></div>
+      <div><b>Boundary 2 · Prompt</b><p>The model is told it knows nothing about any place.</p></div>
+      <div><b>Boundary 3 · Validator</b><p>Rejects venue words, made-up numbers, and names not in the cited fact.</p></div>
+    </div>
+
+    <span class="mono" style="display:block;margin:44px 0 14px">Claims ladder · what Samuel may claim, by how much evidence exists</span>
+    <div class="pc-stage" style="display:block">
+      <div class="ladder">
+        <div class="rung"><span class="lvl">Stage 1</span><h4>Cold</h4><div class="ev">0 swipes</div><div class="meter" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+          <dl><dt>May say</dt><dd>That he'll start noticing</dd><dt>May not say</dt><dd class="no">Anything about the person</dd></dl></div>
+        <div class="rung"><span class="lvl">Stage 2</span><h4>Learning</h4><div class="ev">1–24 swipes, or one vibe</div><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+          <dl><dt>May say</dt><dd>What they've done so far, framed as early</dd><dt>May not say</dt><dd class="no">Patterns, "always," "usually"</dd></dl></div>
+        <div class="rung"><span class="lvl">Stage 3</span><h4>Established</h4><div class="ev">25+ swipes across 2+ vibes</div><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+          <dl><dt>May say</dt><dd>Behavioral patterns plus one next move</dd><dt>May not say</dt><dd class="no">That the app picked or tuned anything</dd></dl></div>
+        <div class="rung"><span class="lvl">Stage 4</span><h4>Deck changed</h4><div class="ev">The deck really reordered</div><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+          <dl><dt>May say</dt><dd>That he's moving things up</dd><dt>May not say</dt><dd class="no">"Made for you," "perfect," "you'll love"</dd></dl></div>
+      </div>
+      <p class="fine" style="margin-bottom:0;color:var(--pc-ink-3)">Adaptation claims are blocked by the validator whenever <code>taste_applied</code> is false, which addresses FTC and App Store claims risk.</p>
+    </div>
+
+    <span class="mono" style="display:block;margin:44px 0 14px">Verification</span>
+    <div class="stats">
+      <div class="stat"><div class="n">24/24</div><p>Unit tests passing.</p></div>
+      <div class="stat"><div class="n">2 of 3</div><p>Runs every "speak" case must pass before ship, with zero grounding failures across all runs.</p></div>
+      <div class="stat"><div class="n">4 of 12</div><p>Early smoke-run failures, because the validator was too strict: it rejected honest paraphrases like "six in ten" for 61%. The fix accepts a fraction within 6 points of the cited percentage, with a test that catches mismatches.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="s" id="transfer">
+  <div class="s-head">
+    <span class="num">08 — Transfer</span>
+    <div>
+      <h2>The same patterns, in healthcare conversational AI.</h2>
+      <p>The objects change. The discipline doesn't: decide what the agent may know, what it may claim, and when silence or a handoff is the right answer.</p>
+    </div>
+  </div>
+  <div class="body tbl"><table>
+    <thead><tr><th>Sauntr pattern</th><th>Healthcare equivalent</th></tr></thead>
+    <tbody>
+      <tr><td>Negative factual claims about a named business</td><td>Clinical claims about a patient: diagnosis, dosing, prognosis</td></tr>
+      <tr><td>Opinion vs. fact register</td><td>Supportive and educational language vs. clinical assertion</td></tr>
+      <tr><td>NONE / silence as a first-class output</td><td>Decline, defer, or escalate to a clinician</td></tr>
+      <tr><td>Deterministic gate before the model</td><td>Triage rules and red-flag detection before generation</td></tr>
+      <tr><td>Narrow second-agent screener</td><td>An independent safety classifier rather than self-policing</td></tr>
+      <tr><td>Fail closed, never auto-rewrite</td><td>On a safety flag, use the safe fallback rather than "fixing" the output</td></tr>
+      <tr><td>Ground truth, no made-up quantifiers</td><td>Every claim traceable to the source record or approved guidance</td></tr>
+      <tr><td>Claims ladder tied to evidence</td><td>Confidence-gated language; no certainty the data can't support</td></tr>
+      <tr><td>Type-level boundary on model inputs</td><td>Data minimization; PHI scoped by contract, not convention</td></tr>
+      <tr><td>Vet before the cache write</td><td>Nothing unvetted persisted or reused</td></tr>
+      <tr><td>Verification over "marked complete"</td><td>Safety controls proven with evals and tests, not assumed from a ticket</td></tr>
+      <tr><td>Retire rather than patch</td><td>Some use cases can't be made safe and get scoped out</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 09 -->
+<section class="s" id="summary">
+  <div class="s-head">
+    <span class="num">09 — What I took from it</span>
+    <div><p class="closing" style="margin:0">The model didn't misbehave. It did what I asked, which was to find the most specific thing in the reviews, and sometimes the most specific thing is an accusation. What I'd tell another team: decide what the agent is allowed to know before you decide how it sounds. Treat silence as an answer. And when the mechanism itself is the risk, don't patch it. Retire it.</p></div>
+  </div>
+</section>
+
+</div>
+
+<section data-screen-label="footer-nav" style="border-top: var(--hairline);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 40px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+    <a href="/work/content-systems/" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-secondary); text-decoration: none;">← Content Systems</a>
+    <a href="/work/product-builds/sauntr" style="font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--accent); text-decoration: none;">Next: Sauntr →</a>
+  </div>
+</section>
+
+<footer data-screen-label="site-footer" style="border-top: var(--hairline); background: var(--surface-card);">
+  <div style="max-width: var(--page-max-width); margin: 0 auto; padding: 28px 32px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 6px; text-decoration: none;">
+      <span style="font-size: 16px; font-weight: 800; color: var(--text-primary);">Culpepper</span>
+      <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted);">UX</span>
+    </a>
+    <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">© 2026 — CULPEPPER UX</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var states = {
+    beta: {
+      says: true, desc: false, flagged: true,
+      html: '<span class="pill red">Shipped in closed beta</span><h4>Published as Samuel\'s own claim.</h4><p>The deployed prompt had no instruction to decline, and the generic-phrase validator had nothing to say about a specific, punctuated, well-formed accusation. It passed every check that existed.</p>' +
+        '<ul class="checks"><li><b class="pass">PASS</b>Length within range</li><li><b class="pass">PASS</b>Ends with punctuation</li><li><b class="pass">PASS</b>No generic phrases</li><li><b class="block">MISSING</b>Negative factual claim check</li></ul>'
+    },
+    spec: {
+      says: false, desc: false, flagged: false,
+      html: '<span class="pill blue">Specced · never shipped</span><h4>Screener blocks it. Samuel is hidden.</h4><p>Layer 2 catches the claim before the cache write. The system fails closed to NONE, and the card shows no Samuel line at all rather than a rewritten one.</p>' +
+        '<ul class="checks"><li><b class="block">BLOCK</b>Negative factual claim about staff conduct</li><li><b class="block">BLOCK</b>Quantifier "multiple people" not grounded</li><li><b class="pass">→ NONE</b>Nothing cached, nothing shown</li></ul>'
+    },
+    after: {
+      says: false, desc: true, flagged: false,
+      html: '<span class="pill ink">Shipped</span><h4>The model never sees the venue.</h4><p>The card carries the provider\'s own summary, verbatim and attributed. Samuel stops describing places and only speaks about the user\'s own swipe patterns, which he can verify.</p>' +
+        '<ul class="checks"><li><b class="pass">OK</b>No provider content in any model input</li><li><b class="pass">OK</b>Derivative cache purged</li><li><b class="pass">OK</b>Samuel\'s claims bound to the claims ladder</li></ul>'
+    }
+  };
+  var btns = document.querySelectorAll('.seg button');
+  var says = document.getElementById('ic-says'), desc = document.getElementById('ic-desc'), note = document.getElementById('ic-note');
+  function set(k){
+    var s = states[k];
+    says.hidden = !s.says; desc.hidden = !s.desc;
+    says.classList.toggle('flagged', s.flagged);
+    note.innerHTML = s.html;
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.state === k ? 'true' : 'false'); });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.state); }); });
+  set('beta');
+  try {
+    var key = 'culpepperux:visited';
+    var cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
+    var slug = '/work/content-systems/flavor-engine';
+    if (cur.indexOf(slug) === -1) { cur.push(slug); localStorage.setItem(key, JSON.stringify(cur)); }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
