@@ -52,6 +52,19 @@ section.s{padding-block:clamp(48px,8vh,88px);border-top:1.5px solid var(--ink)}
 .s-head p{margin:16px 0 0;font-size:18px;line-height:1.55;color:var(--ink-2);max-width:62ch;text-wrap:pretty}
 .body{margin-top:clamp(28px,5vh,48px)}
 .hero .lede strong,.s-head p strong,.closing strong{color:var(--ink);font-weight:600}
+.meet{margin-top:28px;position:relative;background:#fff;border:1px solid var(--pc-rule);border-radius:6px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;align-items:center;font-family:var(--sans);color:var(--pc-ink)}
+.meet::before{content:"";position:absolute;inset:7px;border:1px solid var(--pc-rule);border-radius:3px;pointer-events:none}
+.meet img{width:100%;height:auto;display:block}
+.meet .from{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pc-green)}
+.meet .line{margin:8px 0 0;font-family:var(--serif);font-size:clamp(24px,2.8vw,32px);line-height:1.15}
+.meet .line em{color:var(--pc-green)}
+.meet .sub{margin:8px 0 0;font-size:15px;line-height:1.55;color:var(--pc-ink-2)}
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:18px}
+.pairs div{background:var(--pc-paper);border:1px solid var(--pc-rule);border-radius:4px;padding:10px 12px;font-size:14px;line-height:1.35}
+.pairs b{display:block;font-weight:600;color:var(--pc-ink)}
+.pairs span{color:var(--pc-ink-3)}
+.meet .rule{margin:18px 0 0;border-top:1px solid var(--pc-rule);padding-top:14px;font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.4}
+@media (max-width:640px){.meet{grid-template-columns:1fr}.meet img{width:110px}}
 .callout{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:28px 0 0;font-size:19px;line-height:1.45;font-weight:600;max-width:62ch}
 
 /* Postcard (Sauntr) */
@@ -265,6 +278,21 @@ td:first-child{font-weight:600;width:30%}
       <p class="note">The thesis: platforms read a thousand reviews and tell you what everyone thinks. Sauntr reads them and finds the one thing worth knowing.</p>
     </div>
   </div>
+  <article class="meet" aria-labelledby="meet-h">
+    <img src="img/samuel.png" alt="Samuel Sauntr, the app's mascot, waving from a globe">
+    <div>
+      <span class="from">Meet Samuel</span>
+      <p class="line" id="meet-h">A sommelier, <em>not a salesperson.</em></p>
+      <p class="sub">He earns trust by being right, not by being warm. He notices. He doesn't flatter.</p>
+      <div class="pairs">
+        <div><b>Observant</b><span>not generic</span></div>
+        <div><b>Confident</b><span>not pushy</span></div>
+        <div><b>Dry</b><span>not peppy</span></div>
+        <div><b>Honest about limits</b><span>not overclaiming</span></div>
+      </div>
+      <p class="rule">If the data doesn't support a specific observation, he says nothing.</p>
+    </div>
+  </article>
 </section>
 
 <!-- 02 -->
@@ -431,7 +459,7 @@ td:first-child{font-weight:600;width:30%}
     <span class="num">07 — What replaced it</span>
     <div>
       <h2>A behavior contract enforced in code, not by convention.</h2>
-      <p>Three successive artifacts. The <strong>Voice Spec v1.0</strong> (May): "a sommelier, not a salesperson," two sentences max, no questions or calls to action, and the Seen Test on every line. <strong>Samuel Says v1</strong> (October): the contract written as a subagent. <strong>Content Framework v2</strong> (October): surfaces, signals and a claims ladder.</p>
+      <p>The same Samuel from section 01, with the same voice and the Seen Test on every line, now enforced in code. <strong>Samuel Says v1</strong> (October) is the contract written as a subagent. <strong>Content Framework v2</strong> (October) adds surfaces, signals and a claims ladder.</p>
     </div>
   </div>
   <div class="body">
