@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Flavor Engine · Culpepper UX</title>
-<meta name="description" content="Designing, stress-testing and retiring a generative feature in Sauntr, and the behavior contract that replaced it.">
+<title>The voice was right. The judgment was wrong. · Culpepper UX</title>
+<meta name="description" content="Designing behavioral boundaries for Samuel Sauntr, an AI character who sounded exactly right and said something he had no standing to say.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
 <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/fonts.css">
 <link rel="stylesheet" href="/_ds/culpepper-ux-design-system-774f5e97-f1a4-4b6d-a2ce-d6c6b5b4e32f/tokens/colors.css">
@@ -65,6 +65,40 @@ section.s{padding-block:clamp(48px,8vh,88px);border-top:1.5px solid var(--ink)}
 .pairs span{color:var(--pc-ink-3)}
 .meet .rule{margin:18px 0 0;border-top:1px solid var(--pc-rule);padding-top:14px;font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.4}
 @media (max-width:640px){.meet{grid-template-columns:1fr}.meet img{width:110px}}
+
+/* reframe components */
+.syn{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--pc-ink-2);background:#fff;border:1px dashed var(--pc-ink-3);border-radius:3px;padding:4px 8px;margin-bottom:12px}
+#demo .state-note{display:none}
+#demo[data-state="original"] .n-original,#demo[data-state="contract"] .n-contract,#demo[data-state="revised"] .n-revised{display:block}
+#demo .s-grounded{display:none}
+#demo[data-state="revised"] .s-claim{display:none}
+#demo[data-state="revised"] .s-grounded{display:flex}
+#demo .blocked-tag{display:none}
+#demo[data-state="original"] .s-claim p{text-decoration:underline wavy var(--flag);text-decoration-thickness:1.5px;text-underline-offset:5px}
+#demo[data-state="contract"] .s-claim p{text-decoration:line-through;text-decoration-color:var(--flag);text-decoration-thickness:2px;opacity:.55}
+#demo[data-state="contract"] .s-claim .blocked-tag{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--flag);border:1.5px solid currentColor;border-radius:3px;padding:2px 6px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1.5px solid var(--ink)}
+.tiles > div{padding:18px 20px 18px 0;border-bottom:1px solid var(--rule)}
+.tiles b{display:block;font-size:17px;letter-spacing:-.01em}
+.tiles p{margin:6px 0 0;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.vs{border:1.5px solid var(--ink)}
+.vs-row{display:grid;grid-template-columns:1fr 48px 1fr;align-items:stretch}
+.vs-row + .vs-row{border-top:1px solid var(--rule)}
+.vs-row > div{padding:16px 20px}
+.vs-row > div:last-child{background:var(--wash)}
+.vs-row b{display:block;font-size:16px}
+.vs-row p{margin:6px 0 0;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.vs-x{display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.vs-head{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.vs-head span{padding:10px 20px}
+.vs-head span:last-child{color:var(--flag)}
+@media (max-width:700px){.vs-row{grid-template-columns:1fr}.vs-x{padding:4px 0}.vs-head span:nth-child(2){display:none}}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.principles > div{border:1.5px solid var(--ink);padding:20px;background:#fff;position:relative}
+.principles .pn{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.principles b{display:block;margin-top:8px;font-size:19px;letter-spacing:-.015em;line-height:1.2}
+.principles p{margin:8px 0 0;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.body-p{margin:28px 0 0;font-size:17px;line-height:1.55;color:var(--ink-2);max-width:62ch}
 .callout{border-left:3px solid var(--accent);padding:4px 0 4px 18px;margin:28px 0 0;font-size:19px;line-height:1.45;font-weight:600;max-width:62ch}
 
 /* Postcard (Sauntr) */
@@ -210,7 +244,7 @@ td:first-child{font-weight:600;width:30%}
 .closing{font-size:clamp(20px,2.3vw,26px);line-height:1.45;font-weight:500;letter-spacing:-.01em;max-width:52ch;text-wrap:pretty}
 .site-nav-btn{font-family:var(--font-sans);font-weight:600;font-size:14px;padding:7px 14px;border-radius:var(--radius-sm);border:var(--hairline-strong);color:var(--text-primary);text-decoration:none;display:inline-flex;align-items:center;line-height:1}
 .site-nav-btn:hover{border-color:var(--ink)}
-@media (max-width:640px){.site-nav{gap:18px!important}.site-nav .hide-sm{display:none}}
+@media (max-width:640px){header[data-screen-label="nav"] > div{padding:0 18px!important}.site-nav{gap:14px!important}.site-nav a{font-size:14px!important}}
 .fine{font-size:13px;color:var(--ink-3);margin-top:16px;line-height:1.5}
 </style>
 </head>
@@ -233,49 +267,24 @@ td:first-child{font-weight:600;width:30%}
 
 <section class="hero" id="top">
   <a href="/work/content-systems/" class="mono" style="text-decoration:none;display:inline-block;margin-bottom:14px">← Content Systems</a><br>
-  <span class="mono">Generative feature · Agent behavior · Risk</span>
-  <h1><span class="gt">&gt;</span>The Flavor Engine: designing, stress-testing and retiring a generative feature.</h1>
-  <p class="lede">A generative feature that worked well produced one output that could have created legal exposure. I designed layered mitigations, then recognized that <strong>the mechanism itself couldn't be made safe, and rebuilt the agent's job around what it could truthfully say.</strong></p>
+  <span class="mono">Sauntr · AI character design · Internal prototype</span>
+  <h1><span class="gt">&gt;</span>The voice was right. The judgment was wrong.</h1>
+  <p class="lede">Samuel Sauntr is the personality behind Sauntr, a swipe-based local discovery app. In an internal test, he made a claim about a real business that he had no standing to make, and <strong>he sounded exactly like himself doing it.</strong> This is how that test changed what I design for an AI character: not just how it speaks, but what it's allowed to say.</p>
   <dl class="meta">
-    <div><dt>Product</dt><dd>Sauntr, a swipe-based local venue discovery app (iOS)</dd></div>
-    <div><dt>Role</dt><dd>Founder; product and content design lead. Wrote the specs, prompts and behavior contracts. An engineer implemented them.</dd></div>
-    <div><dt>Stack</dt><dd>Next.js + Capacitor, Supabase, a third-party venue data API, Anthropic API</dd></div>
+    <div><dt>Product</dt><dd>Sauntr, a swipe-based local discovery app (iOS)</dd></div>
+    <div><dt>Role</dt><dd>Founder; product and content design lead. I wrote the voice, the specs and the behavioral rules. An engineer implemented the prototypes.</dd></div>
+    <div><dt>Status</dt><dd>Prototyped and tested internally. Neither version described here has been released.</dd></div>
     <div><dt>Timeline</dt><dd>April–October 2026</dd></div>
   </dl>
 </section>
 
 <!-- 01 -->
-<section class="s" id="idea">
+<section class="s" id="samuel">
   <div class="s-head">
-    <span class="num">01 — The idea</span>
+    <span class="num">01 — Designing Samuel</span>
     <div>
-      <h2>The best thing about a bar is rarely the thing everyone agrees on.</h2>
-      <p>I was testing Sauntr in Savannah when I hit a review that mentioned a themed cookout the regulars run upstairs, a TV-show in-joke. <strong>One line, and I knew more about the place than its 4.5 stars or the platform's summary could tell me.</strong> That became the feature: Samuel finds the one detail a friend would mention and puts it on the card as <strong>"Samuel Sauntr Says."</strong></p>
-    </div>
-  </div>
-  <div class="body pc-stage">
-    <div class="pc-cap">
-      <span class="mono">What the platform summary says</span>
-      <article class="pc tilt-l" aria-label="Venue card with platform summary">
-        <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
-        <span class="from">Greetings from</span>
-        <p class="vname">A bar in Savannah</p>
-        <div class="tags"><span>Live music</span><span>Pool</span><span>Late night</span></div>
-        <p class="desc">"Popular bar with live music, pool tables, and good drinks."<span class="attr">Platform AI summary · 4.5★</span></p>
-        <div class="lines" aria-hidden="true"><span></span><span style="width:76%"></span><span style="width:88%"></span></div>
-      </article>
-      <p class="note">Accurate, and interchangeable with a thousand other bars.</p>
-    </div>
-    <div class="pc-cap">
-      <span class="mono">What a friend would tell you</span>
-      <article class="pc tilt-r" aria-label="Venue card with Samuel Sauntr Says line">
-        <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
-        <span class="from">Greetings from</span>
-        <p class="vname">A bar in Savannah</p>
-        <div class="tags"><span>Live music</span><span>Pool</span><span>Late night</span></div>
-        <div class="says"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"The kind of place that hosts a Trailer Park Boys cheeseburger picnic upstairs and nobody bats an eye."</p></div></div>
-      </article>
-      <p class="note">The thesis: platforms read a thousand reviews and tell you what everyone thinks. Sauntr reads them and finds the one thing worth knowing.</p>
+      <h2>A friend with taste, not a recommendation engine.</h2>
+      <p>Most discovery apps describe places the same way: a rating, a category, a summary of what everyone agrees on. I wanted Sauntr to have a point of view. <strong>Samuel is that point of view: the friend who notices the one detail worth knowing, and knows when there isn't one.</strong></p>
     </div>
   </div>
   <article class="meet" aria-labelledby="meet-h">
@@ -296,216 +305,186 @@ td:first-child{font-weight:600;width:30%}
 </section>
 
 <!-- 02 -->
-<section class="s" id="prompt">
+<section class="s" id="prototype">
   <div class="s-head">
-    <span class="num">02 — The prompt and its contract</span>
+    <span class="num">02 — The generative prototype</span>
     <div>
-      <h2>Nothing special, nothing said.</h2>
-      <p>Planned as one sentence per venue card, from one Claude call per venue on first load. Results were cached in Supabase, so cost grows with venues rather than users.</p>
+      <h2>Find the one detail worth knowing. Or say nothing.</h2>
+      <p>The first prototype gave Samuel one job: read what people had written about a venue, and surface the single most specific, personality-defining detail, in his voice, in a sentence or two.</p>
     </div>
   </div>
-  <div class="body">
-    <div class="prompt-card">
-      <span class="mono">Locked prompt · May 28, 2026</span>
-      <blockquote>"Analyze the reviews and summarize them into one or two sentences that would make a person feel like they got a special insight from a close friend about the venue. <mark>If the reviews don't contain enough specific or unexpected detail to write a meaningful insight, respond with only the word NONE.</mark>"</blockquote>
-      <div class="rules">
-        <div><b>Rule 1</b>Use the prompt exactly as written. It was tuned for the "close friend" register.</div>
-        <div><b>Rule 2</b><code>max_tokens: 200</code></div>
-        <div><b>Rule 3</b>When the model returns NONE, hide Samuel entirely. No filler like "a local favorite."</div>
-      </div>
+  <div class="body pc-stage">
+    <div class="pc-cap">
+      <span class="mono">A typical summary</span>
+      <article class="pc tilt-l" aria-label="Venue card with a typical summary">
+        <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
+        <span class="from">Greetings from</span>
+        <p class="vname">A bar in Savannah</p>
+        <div class="tags"><span>Live music</span><span>Pool</span><span>Late night</span></div>
+        <p class="desc">"Popular bar with live music, pool tables, and good drinks."<span class="attr">Aggregated summary</span></p>
+        <div class="lines" aria-hidden="true"><span></span><span style="width:76%"></span><span style="width:88%"></span></div>
+      </article>
+      <p class="note">Accurate, and interchangeable with a thousand other bars.</p>
     </div>
-    <p class="callout">Blank is better than generic. The NONE path was a design decision from the start, not a fallback added later.</p>
+    <div class="pc-cap">
+      <span class="mono">What the prototype wrote</span>
+      <article class="pc tilt-r" aria-label="Venue card with a Samuel Sauntr Says line">
+        <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
+        <span class="from">Greetings from</span>
+        <p class="vname">A bar in Savannah</p>
+        <div class="tags"><span>Live music</span><span>Pool</span><span>Late night</span></div>
+        <div class="says"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"The kind of place that hosts a Trailer Park Boys cheeseburger picnic upstairs and nobody bats an eye."</p></div></div>
+      </article>
+      <p class="note">One detail, and you know more about the place than any rating could tell you.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <span class="mono" style="display:block;margin-bottom:14px">What the prototype was designed around</span>
+    <div class="tiles">
+      <div><b>Specificity over description</b><p>One detail a friend would mention, not a list of features.</p></div>
+      <div><b>One consistent voice</b><p>Every line sounds like Samuel, whatever the venue.</p></div>
+      <div><b>Restraint on thin evidence</b><p>If the material doesn't support a real observation, don't reach for one.</p></div>
+      <div><b>A designed silence path</b><p>Nothing worth saying returns <code>NONE</code>, and Samuel doesn't appear on the card.</p></div>
+    </div>
+    <p class="callout"><code>NONE</code> was a design decision from the start, not a fallback added later. A blank card is better than "a local favorite."</p>
   </div>
 </section>
 
 <!-- 03 -->
-<section class="s" id="audit">
+<section class="s" id="test">
   <div class="s-head">
-    <span class="num">03 — How it worked</span>
+    <span class="num">03 — When the voice was right, but the answer was wrong</span>
     <div>
-      <h2>It worked, on venues nobody had curated.</h2>
-      <p>The engine produced exactly the close-friend register, such as a bar where one bartender cooks and serves, with a specific sleeper menu item and its price.</p>
+      <h2>He sounded exactly like Samuel. That was the problem.</h2>
+      <p>In an internal test, the prototype produced a confident statement about how a real business treated its customers. It was specific, it was grammatical, and it was squarely in Samuel's voice. It passed every quality check the prototype had. <strong>It was also an allegation nobody could stand behind.</strong></p>
+      <p>The real sentence isn't reproduced here. The example below is synthetic, about a fictional venue, and shows the same kind of failure. Use the toggle to see it as tested, as the behavioral contract evaluates it, and as the revised design handles it.</p>
     </div>
   </div>
   <div class="body">
-    <span class="mono" style="display:block;margin-bottom:14px">Pipeline as built</span>
-    <div class="flow">
-      <div class="node"><span class="k">1 · Input</span><h4>Review text</h4><p>Arrives with the venue data provider's response.</p></div>
-      <div class="node det"><span class="k">2 · Cache</span><h4>Check cache</h4><p>Keyed by place_id, 30-day TTL.</p></div>
-      <div class="node model"><span class="k">3 · Model</span><h4>Claude Sonnet</h4><p>Called on a cache miss with the review text.</p></div>
-      <div class="node det"><span class="k">4 · Validator</span><h4>isSpecificReviewInsight()</h4><p>Rejects too short or long, no end punctuation, or generic phrases ("great atmosphere").</p></div>
-      <div class="node"><span class="k">5 · Output</span><h4>samuelSauntrSays</h4><p>Cached and returned to the client.</p></div>
+    <div class="seg" role="group" aria-label="Design state">
+      <button type="button" data-state="original" aria-pressed="true">Original prototype</button>
+      <button type="button" data-state="contract" aria-pressed="false">Against the contract</button>
+      <button type="button" data-state="revised" aria-pressed="false">Revised behavior</button>
     </div>
+    <div class="pc-stage" id="demo" data-state="original">
+      <div class="pc-cap">
+        <span class="syn">Synthetic example · fictional venue</span>
+        <article class="pc" aria-live="polite">
+          <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
+          <span class="from">Greetings from</span>
+          <p class="vname">The Lantern Room</p>
+          <div class="tags"><span>Bar</span><span>Dancing</span><span>Late night</span></div>
+          <div class="says s-claim"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"Word is the staff here will single you out and show you the door for no real reason."</p><span class="blocked-tag">Not shown to the member</span></div></div>
+          <div class="says s-grounded"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"Third late-night spot you've liked in a row. You know what you're after tonight."</p></div></div>
+          <div class="lines" aria-hidden="true"><span></span><span style="width:76%"></span><span style="width:88%"></span></div>
+        </article>
+      </div>
 
+      <div class="state-note n-original">
+        <span class="pill red">What happened in testing · recreated</span>
+        <h4>Specific, on voice, and unsupported.</h4>
+        <p>The line reads like a friend's warning. Every check the prototype ran was about writing quality, so it passed all of them.</p>
+        <ul class="checks"><li><b class="pass">PASS</b>Specific, not generic</li><li><b class="pass">PASS</b>In Samuel's voice</li><li><b class="pass">PASS</b>The right length and shape</li><li><b class="block">MISSING</b>Is this a claim he's allowed to make?</li></ul>
+      </div>
+      <div class="state-note n-contract">
+        <span class="pill blue">Proposed · the behavioral contract</span>
+        <h4>The question comes before the phrasing.</h4>
+        <p>The contract asks what kind of statement this is before it asks whether it's well written. A factual allegation about a business isn't something Samuel is authorized to make, however good the sentence is.</p>
+        <ul class="checks"><li><b class="block">CLAIM</b>Factual allegation about a third party</li><li><b class="block">EVIDENCE</b>Secondhand, and nothing he can verify</li><li><b class="block">PERMISSION</b>Not authorized for this kind of claim</li><li><b class="pass">RESULT</b>Silence. Nothing is rewritten.</li></ul>
+      </div>
+      <div class="state-note n-revised">
+        <span class="pill ink">Illustrative · revised design</span>
+        <h4>He talks about what he can actually see.</h4>
+        <p>Samuel stops describing what strangers say about a place. When he speaks, it's about something he can support, like the choices the member is making right now. When he can't support anything, the card simply has no Samuel line.</p>
+        <ul class="checks"><li><b class="pass">OK</b>Grounded in the member's own choices</li><li><b class="pass">OK</b>No claims about the business</li><li><b class="pass">OK</b>Silence remains a valid answer</li></ul>
+      </div>
+    </div>
+    <p class="callout">A sentence can pass every stylistic requirement and still fail the standard for responsible communication.</p>
   </div>
 </section>
 
 <!-- 04 -->
-<section class="s" id="incident">
+<section class="s" id="diagnosis">
   <div class="s-head">
-    <span class="num">04 — The incident · closed beta</span>
+    <span class="num">04 — The diagnosis</span>
     <div>
-      <h2>Then Samuel accused a real bar of mistreating its customers.</h2>
-      <p>The line was specific, and it sounded like the close friend I'd asked for. <strong>It was also exactly the wrong kind of specific: a factual claim about how a real business treats people, in Samuel's voice.</strong> I've left the venue's name off, because putting the claim next to it would just publish it again. The toggle shows the card as it ran, how the fix I designed would have caught it, and what the card does now.</p>
+      <h2>The checks measured style. Nothing measured standing.</h2>
+      <p>The prototype asked whether an observation was specific, coherent and on voice. Those are the right questions for writing. <strong>They're the wrong questions for deciding what a character can say about the world.</strong> Four distinctions were missing.</p>
     </div>
   </div>
   <div class="body">
-    <div class="seg" role="group" aria-label="Card state">
-      <button type="button" data-state="beta" aria-pressed="true">Closed beta</button>
-      <button type="button" data-state="spec" aria-pressed="false">Mitigation spec</button>
-      <button type="button" data-state="after" aria-pressed="false">After retirement</button>
+    <div class="vs">
+      <div class="vs-row vs-head"><span>Fine for Samuel</span><span></span><span>Out of bounds</span></div>
+      <div class="vs-row"><div><b>An impression</b><p>"Has the feel of a place where regulars linger."</p></div><span class="vs-x" aria-hidden="true">vs</span><div><b>A factual assertion</b><p>"The staff ignore anyone they don't know."</p></div></div>
+      <div class="vs-row"><div><b>An observation</b><p>Something he noticed, framed as what it is.</p></div><span class="vs-x" aria-hidden="true">vs</span><div><b>An allegation</b><p>A charge about how someone behaves.</p></div></div>
+      <div class="vs-row"><div><b>A supported inference</b><p>A conclusion the material actually backs up.</p></div><span class="vs-x" aria-hidden="true">vs</span><div><b>An invented conclusion</b><p>A pattern or a "word is" that nothing establishes.</p></div></div>
+      <div class="vs-row"><div><b>A compelling detail</b><p>Interesting enough to say.</p></div><span class="vs-x" aria-hidden="true">vs</span><div><b>An appropriate thing to publish</b><p>Interesting <em>and</em> his to say.</p></div></div>
     </div>
-    <div class="pc-stage">
-      <div class="pc-cap">
-        <article class="pc" aria-live="polite">
-          <div class="stamp" aria-hidden="true"><b>SAUNTR</b><i>GET</i><i>LOST</i></div>
-          <span class="from">Greetings from</span>
-          <p class="vname"><span class="redact" aria-label="Venue name withheld"></span></p>
-          <div class="tags"><span>Bar</span><span>Dancing</span><span>Late night</span></div>
-          <div class="prov" id="ic-desc" hidden aria-label="Provider summary, shown verbatim"><span class="prov-k">Provider summary · verbatim</span><span class="prov-l"></span><span class="prov-l" style="width:82%"></span><span class="prov-l" style="width:64%"></span><span class="attr">Summary from the data provider</span></div>
-          <div class="says flagged" id="ic-says"><img class="av" src="/work/content-systems/flavor-engine/img/samuel-head.png" alt="" width="34" height="34"><div><small>Samuel Sauntr says</small><p>"Multiple people have reported being confronted or insulted by staff for innocuous behavior like solo dancing."</p></div></div>
-          <div class="lines" aria-hidden="true"><span></span><span style="width:76%"></span><span style="width:88%"></span></div>
-        </article>
-      </div>
-      <div class="state-note" id="ic-note"></div>
-    </div>
-
-    <span class="mono" style="display:block;margin:36px 0 14px">Why this was the dangerous kind of output</span>
-    <div class="tbl"><table>
-      <thead><tr><th>Factor</th><th>Why it matters</th></tr></thead>
-      <tbody>
-        <tr><td>Specific factual assertion</td><td>Not opinion. It alleges a pattern of staff mistreating patrons.</td></tr>
-        <tr><td>Named private business</td><td>A local venue is a private figure, so the bar for a claim is negligence, not actual malice.</td></tr>
-        <tr><td>Generated, not quoted</td><td>The engine wrote new prose. "Multiple people" may not have been in the source. Invented quantifiers turn a summary into fabrication.</td></tr>
-        <tr><td>Republication</td><td>Repeating a reviewer's defamatory claim is itself publication.</td></tr>
-        <tr><td>Section 230</td><td>Likely doesn't shield AI-generated output. The app is closer to publisher than neutral host.</td></tr>
-        <tr><td>Branded voice</td><td>"Samuel says" presents the claim as the company's own statement.</td></tr>
-        <tr><td>The prompt pulled toward it</td><td>"Find the unexpected detail" rewards outliers, and negative outliers are often the most specific thing in a set of reviews.</td></tr>
-      </tbody>
-    </table></div>
-    <p class="fine">Risk analysis, not legal advice. Specifics were flagged for counsel.</p>
+    <p class="callout">Voice guidelines tell a character how to sound. They don't tell it what it knows.</p>
   </div>
 </section>
 
 <!-- 05 -->
-<section class="s" id="mitigation">
+<section class="s" id="contract">
   <div class="s-head">
-    <span class="num">05 — Mitigation design</span>
+    <span class="num">05 — Designing the behavioral contract</span>
     <div>
-      <h2>Defense in depth, so no single layer has to be perfect.</h2>
-      <p>"Always stay positive" isn't enough: <strong>a false positive fact ("staff know every regular by name") is just as unverifiable.</strong> The rules separate impression from assertion, and make silence the safe answer.</p>
+      <h2>Not "be nicer." Decide what he's authorized to say.</h2>
+      <p>Telling Samuel to avoid negative language wouldn't have fixed it. <strong>A flattering claim he can't support ("the staff know every regular by name") is just as unearned.</strong> The fix was a contract: boundaries on what the character may know, infer and assert, settled before any sentence gets written.</p>
     </div>
   </div>
   <div class="body">
-    <div class="layers">
-      <span class="pill red unshipped">Specced · never shipped</span>
-      <div class="layer">
-        <div><span class="mono">Layer 1</span><h4>Generation prompt constraints</h4></div>
-        <ol>
-          <li><b>Negative-claim exclusions.</b> No allegations of staff misconduct, mistreatment, discrimination, safety, health, cleanliness or illegality; no negative factual claims about identifiable people.</li>
-          <li><b>Opinion, not fact.</b> Insights stay in impression language ("has the feel of a place where regulars linger").</li>
-          <li><b>NONE as a safety control,</b> not just a quality control. When in doubt, the agent says nothing.</li>
-          <li><b>Ground truth.</b> Every claim supported by the source reviews; no made-up quantifiers ("multiple people," "many say").</li>
-        </ol>
-      </div>
-      <div class="layer">
-        <div><span class="mono">Layer 2</span><h4>Independent screening agent</h4></div>
-        <ul>
-          <li>A separate, cheaper model (Haiku) with one narrow job: <b>does this assert a negative factual claim about staff, conduct, safety, health or legality? PASS or BLOCK.</b> A narrow classification is far more reliable than asking a creative generator to police itself.</li>
-          <li><b>Fail closed.</b> On BLOCK, return NONE. Never auto-rewrite: a rewrite adds cost and can introduce new errors.</li>
-          <li><b>Placed before the cache write,</b> so the cache only ever holds vetted output. Runs once per venue on a miss: fractions of a cent, no added delay on cached venues.</li>
-        </ul>
-      </div>
-      <div class="layer">
-        <div><span class="mono">Layer 3</span><h4>Operations</h4></div>
-        <ul>
-          <li>A notice-and-takedown path so venues can flag and remove a summary.</li>
-          <li>Media/tech E&amp;O insurance before scaling users.</li>
-        </ul>
+    <div class="principles">
+      <div><span class="pn">1</span><b>Evidence before expression</b><p>An observation needs enough support before the system considers how to phrase it.</p></div>
+      <div><span class="pn">2</span><b>Permission to claim</b><p>Different kinds of statements need different levels of evidence. Some aren't his to make at all.</p></div>
+      <div><span class="pn">3</span><b>Voice within boundaries</b><p>Staying in character never outranks being truthful and grounded.</p></div>
+      <div><span class="pn">4</span><b>Silence is valid</b><p>When the evidence isn't there, saying nothing beats filler or an unsupported claim.</p></div>
+    </div>
+
+    <span class="mono" style="display:block;margin:40px 0 14px">How a line earns its place</span>
+    <div class="flow">
+      <div class="node"><span class="k">Step 1</span><h4>A candidate observation</h4><p>Something Samuel might say.</p></div>
+      <div class="node det"><span class="k">Step 2</span><h4>What kind of claim is it?</h4><p>An impression, a note about the member's own choices, or an assertion about someone else.</p></div>
+      <div class="node det"><span class="k">Step 3</span><h4>Is there enough evidence for that kind?</h4><p>The bar rises with the claim.</p><span class="exit">→ if not, silence</span></div>
+      <div class="node model"><span class="k">Step 4</span><h4>Say it in his voice</h4><p>Without stretching past what the evidence supports.</p><span class="exit">→ if it overreaches, silence</span></div>
+      <div class="node"><span class="k">Step 5</span><h4>Samuel speaks</h4><p>Or the card has no Samuel line.</p></div>
+    </div>
+
+    <span class="mono" style="display:block;margin:40px 0 14px">Permission to claim</span>
+    <div class="pc-stage" style="display:block">
+      <div class="ladder">
+        <div class="rung"><span class="lvl">Context</span><h4>The moment</h4><div class="meter" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+          <dl><dt>May say</dt><dd>Time of day, the weather, where you are</dd></dl></div>
+        <div class="rung"><span class="lvl">This session</span><h4>What you just did</h4><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+          <dl><dt>May say</dt><dd>What you've chosen so far, framed as early</dd></dl></div>
+        <div class="rung"><span class="lvl">Over time</span><h4>Your patterns</h4><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+          <dl><dt>May say</dt><dd>Only with repeated evidence, never as who you are</dd></dl></div>
+        <div class="rung"><span class="lvl">Off limits</span><h4>Claims about others</h4><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+          <dl><dt>May not say</dt><dd class="no">Facts or allegations about a business or a person</dd></dl></div>
       </div>
     </div>
-    <p class="callout">These were specced and added to the sprint tracker. They never shipped, because the next finding retired the feature first.</p>
+    <p class="body-p">These principles shaped the next round of work: a version of Samuel that speaks only about what members do in the app, with checks in code before and after the model, and silence as the default. It was specified and prototyped. It hasn't been released.</p>
   </div>
 </section>
 
 <!-- 06 -->
 <section class="s" id="decision">
   <div class="s-head">
-    <span class="num">06 — The decision</span>
+    <span class="num">06 — The decision and the takeaway</span>
     <div>
-      <h2>It was working. I retired it anyway.</h2>
-      <p>While I was speccing the fix, I found the bigger problem: the feature's whole mechanic was the thing it wasn't allowed to do. <strong>It conflicted with a data provider's terms, which don't allow new content built from their reviews, and that's all the feature did.</strong> Switching review sources wouldn't have touched the defamation risk either, because that comes from writing claims about businesses at all. So I didn't patch it. I gave Samuel a different job.</p>
+      <h2>The prototype didn't ship. The lesson did.</h2>
+      <p>The original prototype was never released. This test wasn't the only consideration in that decision, but it's the one that changed how I work. <strong>The problem was never sentence quality. It was the character's authority, and the relationship between evidence and expression.</strong></p>
     </div>
   </div>
   <div class="body">
-    <div class="flow" style="margin-bottom:28px">
-      <div class="node"><span class="k">Why not patch it</span><h4>The mechanic was the conflict</h4><p>Conflicting with the provider's terms risked losing API access, which would break the whole app. Another major review API explicitly bans feeding its content into generative AI.</p></div>
-      <div class="node"><span class="k">Descriptions</span><h4>Provider summary, verbatim</h4><p>The provider's own editorialSummary, with attribution, untouched by the model.</p></div>
-      <div class="node"><span class="k">Cache</span><h4>Purged, not orphaned</h4><p>Cached derivative content actively deleted.</p></div>
-      <div class="node det"><span class="k">Samuel</span><h4>A new job</h4><p>Claims about the user's own patterns, which he can verify.</p></div>
-    </div>
     <div class="swap">
-      <div class="card before"><span class="mono">Samuel's job, before</span><p>What reviewers say about this place.</p></div>
+      <div class="card before"><span class="mono">Samuel's job, before</span><p>What other people say about this place.</p></div>
       <span class="arrow" aria-hidden="true">→</span>
-      <div class="card after"><span class="mono">Samuel's job, after</span><p>What your behavior says about your taste.</p></div>
+      <div class="card after"><span class="mono">Samuel's job, after</span><p>What your own choices say about your taste.</p></div>
     </div>
-    <div class="principle-row"><img src="/work/content-systems/flavor-engine/img/samuel.png" alt="Samuel Sauntr"><p class="principle">"The provider identifies the place; the user teaches the app what it means to them."</p></div>
-  </div>
-</section>
-
-<!-- 07 -->
-<section class="s" id="contract">
-  <div class="s-head">
-    <span class="num">07 — What replaced it</span>
-    <div>
-      <h2>A behavior contract enforced in code, not by convention.</h2>
-      <p>The same Samuel from section 01, with the same voice and the Seen Test on every line, now enforced in code. <strong>Samuel Says v1</strong> (October) is the contract written as a subagent. <strong>Content Framework v2</strong> (October) adds surfaces, signals and a claims ladder.</p>
-    </div>
-  </div>
-  <div class="body">
-    <span class="mono" style="display:block;margin-bottom:14px">Samuel Says v1 · observation subagent</span>
-    <div class="flow">
-      <div class="node det"><span class="k">Deterministic</span><h4>Facts</h4><p>The user's own swipe data becomes up to seven pre-worded facts. All arithmetic happens in code.</p></div>
-      <div class="node det"><span class="k">Deterministic</span><h4>Gate</h4><p>Thin data, weak facts, repeats, disabled surfaces.</p><span class="exit">→ most silences happen here, before any model call</span></div>
-      <div class="node model"><span class="k">Model · Haiku</span><h4>Pick and phrase</h4><p>Chooses one fact and words it in Samuel's voice, or chooses silence.</p></div>
-      <div class="node det"><span class="k">Deterministic</span><h4>Validator</h4><p>Enforces voice and grounding.</p><span class="exit">→ any failure = silence + fallback copy, no retry or repair</span></div>
-    </div>
-
-    <div class="bound">
-      <div><b>Boundary 1 · Types</b><p>The type system has no field that can hold provider content.</p></div>
-      <div><b>Boundary 2 · Prompt</b><p>The model is told it knows nothing about any place.</p></div>
-      <div><b>Boundary 3 · Validator</b><p>Rejects venue words, made-up numbers, and names not in the cited fact.</p></div>
-    </div>
-
-    <span class="mono" style="display:block;margin:44px 0 14px">Claims ladder · what Samuel may claim, by how much evidence exists</span>
-    <div class="pc-stage" style="display:block">
-      <div class="ladder">
-        <div class="rung"><span class="lvl">Stage 1</span><h4>Cold</h4><div class="ev">0 swipes</div><div class="meter" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
-          <dl><dt>May say</dt><dd>That he'll start noticing</dd><dt>May not say</dt><dd class="no">Anything about the person</dd></dl></div>
-        <div class="rung"><span class="lvl">Stage 2</span><h4>Learning</h4><div class="ev">1–24 swipes, or one vibe</div><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span></span><span></span></div>
-          <dl><dt>May say</dt><dd>What they've done so far, framed as early</dd><dt>May not say</dt><dd class="no">Patterns, "always," "usually"</dd></dl></div>
-        <div class="rung"><span class="lvl">Stage 3</span><h4>Established</h4><div class="ev">25+ swipes across 2+ vibes</div><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
-          <dl><dt>May say</dt><dd>Behavioral patterns plus one next move</dd><dt>May not say</dt><dd class="no">That the app picked or tuned anything</dd></dl></div>
-        <div class="rung"><span class="lvl">Stage 4</span><h4>Deck changed</h4><div class="ev">The deck really reordered</div><div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
-          <dl><dt>May say</dt><dd>That he's moving things up</dd><dt>May not say</dt><dd class="no">"Made for you," "perfect," "you'll love"</dd></dl></div>
-      </div>
-      <p class="fine" style="margin-bottom:0;color:var(--pc-ink-3)">Adaptation claims are blocked by the validator whenever <code>taste_applied</code> is false, which addresses FTC and App Store claims risk.</p>
-    </div>
-
-    <span class="mono" style="display:block;margin:44px 0 14px">Verification</span>
-    <div class="stats">
-      <div class="stat"><div class="n">24/24</div><p>Unit tests passing.</p></div>
-      <div class="stat"><div class="n">2 of 3</div><p>Runs every "speak" case must pass before ship, with zero grounding failures across all runs.</p></div>
-      <div class="stat"><div class="n">4 of 12</div><p>Early smoke-run failures, because the validator was too strict: it rejected honest paraphrases like "six in ten" for 61%. The fix accepts a fraction within 6 points of the cited percentage, with a test that catches mismatches.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 08 -->
-<section class="s" id="summary">
-  <div class="s-head">
-    <span class="num">08 — What I took from it</span>
-    <div><p class="closing" style="margin:0">The model didn't misbehave. It did what I asked, which was to find the most specific thing in the reviews, and sometimes the most specific thing is an accusation. <strong>What I'd tell another team: decide what the agent is allowed to know before you decide how it sounds.</strong> Treat silence as an answer. And when the mechanism itself is the risk, don't patch it. Retire it.</p></div>
+    <div class="principle-row"><img src="/work/content-systems/flavor-engine/img/samuel.png" alt="Samuel Sauntr"><p class="principle">"Don't just design how an AI character speaks. Design what it's allowed to know, infer, and say."</p></div>
+    <p class="closing" style="margin-top:28px">That's the part of content design that shapes how a system behaves, not just the words it produces. The voice tells you who the character is. The contract decides what it's allowed to do with that voice.</p>
   </div>
 </section>
 
@@ -530,34 +509,14 @@ td:first-child{font-weight:600;width:30%}
 
 <script>
 (function(){
-  var states = {
-    beta: {
-      says: true, desc: false, flagged: true,
-      html: '<span class="pill red">Shipped in closed beta</span><h4>Published as Samuel\'s own claim.</h4><p>Nothing in the pipeline was built to catch this. The decline path only handled reviews that weren\'t specific enough, and the generic-phrase validator had nothing to say about a specific, punctuated, well-formed accusation. It passed every check that existed.</p>' +
-        '<ul class="checks"><li><b class="pass">PASS</b>Length within range</li><li><b class="pass">PASS</b>Ends with punctuation</li><li><b class="pass">PASS</b>No generic phrases</li><li><b class="block">MISSING</b>Negative factual claim check</li></ul>'
-    },
-    spec: {
-      says: false, desc: false, flagged: false,
-      html: '<span class="pill blue">Specced · never shipped</span><h4>Screener blocks it. Samuel is hidden.</h4><p>Layer 2 catches the claim before the cache write. The system fails closed to NONE, and the card shows no Samuel line at all rather than a rewritten one.</p>' +
-        '<ul class="checks"><li><b class="block">BLOCK</b>Negative factual claim about staff conduct</li><li><b class="block">BLOCK</b>Quantifier "multiple people" not grounded</li><li><b class="pass">→ NONE</b>Nothing cached, nothing shown</li></ul>'
-    },
-    after: {
-      says: false, desc: true, flagged: false,
-      html: '<span class="pill ink">Shipped</span><h4>The model never sees the venue.</h4><p>The card carries the provider\'s own summary, verbatim and attributed. Samuel stops describing places and only speaks about the user\'s own swipe patterns, which he can verify.</p>' +
-        '<ul class="checks"><li><b class="pass">OK</b>No provider content in any model input</li><li><b class="pass">OK</b>Derivative cache purged</li><li><b class="pass">OK</b>Samuel\'s claims bound to the claims ladder</li></ul>'
-    }
-  };
+  var demo = document.getElementById('demo');
   var btns = document.querySelectorAll('.seg button');
-  var says = document.getElementById('ic-says'), desc = document.getElementById('ic-desc'), note = document.getElementById('ic-note');
   function set(k){
-    var s = states[k];
-    says.hidden = !s.says; desc.hidden = !s.desc;
-    says.classList.toggle('flagged', s.flagged);
-    note.innerHTML = s.html;
+    demo.setAttribute('data-state', k);
     btns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.state === k ? 'true' : 'false'); });
   }
   btns.forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.state); }); });
-  set('beta');
+  set('original');
   try {
     var key = 'culpepperux:visited';
     var cur = JSON.parse(localStorage.getItem(key) || '[]') || [];
