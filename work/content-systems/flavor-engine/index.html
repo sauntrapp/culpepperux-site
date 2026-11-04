@@ -524,27 +524,12 @@ td:first-child{font-weight:600;width:30%}
     <span class="num">05 — Designing the behavioral contract</span>
     <div>
       <h2>Not "be nicer." Decide what he's authorized to say.</h2>
-      <p>Telling Samuel to avoid negative language wouldn't have fixed it. <strong>A flattering claim he can't support ("the staff know every regular by name") is just as unearned.</strong> The fix was a contract: boundaries on what the character may know, infer and assert, settled before any sentence gets written.</p>
+      <p>Telling Samuel to avoid negative language wouldn't have fixed it. A flattering claim he couldn't support was just as unearned.</p>
+      <p><strong>The problem was authority, not sentiment.</strong> The next design defined what Samuel could observe, what he could reasonably infer, and which claims were outside his role entirely.</p>
     </div>
   </div>
   <div class="body">
-    <div class="principles">
-      <div><span class="pn">1</span><b>Evidence before expression</b><p>An observation needs enough support before the system considers how to phrase it.</p></div>
-      <div><span class="pn">2</span><b>Permission to claim</b><p>Different kinds of statements need different levels of evidence. Some aren't his to make at all.</p></div>
-      <div><span class="pn">3</span><b>Voice within boundaries</b><p>Staying in character never outranks being truthful and grounded.</p></div>
-      <div><span class="pn">4</span><b>Silence is valid</b><p>When the evidence isn't there, saying nothing beats filler or an unsupported claim.</p></div>
-    </div>
-
-    <span class="mono" style="display:block;margin:40px 0 14px">How a line earns its place</span>
-    <div class="flow">
-      <div class="node"><span class="k">Step 1</span><h4>A candidate observation</h4><p>Something Samuel might say.</p></div>
-      <div class="node det"><span class="k">Step 2</span><h4>What kind of claim is it?</h4><p>An impression, a note about the member's own choices, or an assertion about someone else.</p></div>
-      <div class="node det"><span class="k">Step 3</span><h4>Is there enough evidence for that kind?</h4><p>The bar rises with the claim.</p><span class="exit">→ if not, silence</span></div>
-      <div class="node model"><span class="k">Step 4</span><h4>Say it in his voice</h4><p>Without stretching past what the evidence supports.</p><span class="exit">→ if it overreaches, silence</span></div>
-      <div class="node"><span class="k">Step 5</span><h4>Samuel speaks</h4><p>Or the card has no Samuel line.</p></div>
-    </div>
-
-    <span class="mono" style="display:block;margin:40px 0 14px">Permission to claim</span>
+    <span class="mono" style="display:block;margin-bottom:14px">The contract — what Samuel may claim</span>
     <div class="pc-stage" style="display:block">
       <div class="ladder">
         <div class="rung"><span class="lvl">Context</span><h4>The moment</h4><div class="meter" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
@@ -557,7 +542,8 @@ td:first-child{font-weight:600;width:30%}
           <dl><dt>May not say</dt><dd class="no">Facts or allegations about a business or a person</dd></dl></div>
       </div>
     </div>
-    <p class="body-p">These principles shaped the next round of work: a version of Samuel that speaks only about what members do in the app, with checks in code before and after the model, and silence as the default. It was specified and prototyped. It hasn't been released.</p>
+    <p class="body-p"><strong>The contract changed the order of operations.</strong> Evidence and permission came first. Voice came afterward. And when a claim couldn't meet the standard, silence was the intended outcome.</p>
+    <p class="body-p" style="margin-top:14px">These principles informed the next round of specifications and internal prototyping. The revised system was not publicly released.</p>
   </div>
 </section>
 
